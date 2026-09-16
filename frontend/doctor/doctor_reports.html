@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Medical Reports | MedVisionAI</title>
+
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Google Font -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Page CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/doctor_reports.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="page-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>MedVisionAI</h3>
+
+                <span>Doctor Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="doctor_dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="doctor_patients.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-people-fill"></i>
+
+                <span>My Patients</span>
+
+            </a>
+
+
+            <a
+                href="doctor_reports.html"
+                class="nav-item active"
+            >
+
+                <i class="bi bi-file-earmark-medical-fill"></i>
+
+                <span>Medical Reports</span>
+
+            </a>
+
+
+            <a
+                href="doctor_upload_report.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                <span>Upload Report</span>
+
+            </a>
+
+
+            <a
+                href="doctor_appointments.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-calendar-check-fill"></i>
+
+                <span>Appointments</span>
+
+            </a>
+
+
+            <a
+                href="doctor_medicines.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-capsule"></i>
+
+                <span>Medicines</span>
+
+            </a>
+
+
+            <a
+                href="doctor_messages.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-chat-dots-fill"></i>
+
+                <span>Messages</span>
+
+            </a>
+
+
+            <a
+                href="doctor_health_timeline.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-clock-history"></i>
+
+                <span>Health Timeline</span>
+
+            </a>
+
+
+            <p class="nav-heading account-heading">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="doctor_profile.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>Profile</span>
+
+            </a>
+
+
+            <a
+                href="doctor_settings.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-gear-fill"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h2>
+                    Medical Reports
+                </h2>
+
+                <p>
+                    View reports uploaded for your assigned patients.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="reportSearch"
+                        placeholder="Search reports..."
+                    >
+
+                </div>
+
+
+                <button class="notification-button">
+
+                    <i class="bi bi-bell"></i>
+
+                </button>
+
+
+                <div class="doctor-mini-profile">
+
+                    <div class="doctor-avatar">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="doctorName">
+                            Doctor
+                        </strong>
+
+                        <span>
+                            Doctor
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             INFO BANNER
+             ===================================================== -->
+
+        <section class="info-banner">
+
+
+            <div class="info-icon">
+
+                <i class="bi bi-file-earmark-medical"></i>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Patient Medical Reports
+                </h4>
+
+                <p>
+                    Reports uploaded by Hospital Management,
+                    doctors, or authorized medical staff will
+                    appear here automatically.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REPORT STATISTICS
+             ===================================================== -->
+
+        <section class="report-stats">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="bi bi-files"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Total Reports
+                    </span>
+
+                    <h3 id="totalReports">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="bi bi-eye-fill"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Pending Review
+                    </span>
+
+                    <h3 id="pendingReports">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Reviewed
+                    </span>
+
+                    <h3 id="reviewedReports">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="bi bi-calendar3"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Uploaded Today
+                    </span>
+
+                    <h3 id="todayReports">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REPORT CONTROLS
+             ===================================================== -->
+
+        <section class="report-container">
+
+
+            <div class="report-header">
+
+
+                <div>
+
+                    <h3>
+                        Patient Reports
+                    </h3>
+
+                    <p>
+                        Reports are grouped by patient and treatment trial.
+                    </p>
+
+                </div>
+
+
+                <div class="report-filters">
+
+
+                    <select
+                        id="reportTypeFilter"
+                    >
+
+                        <option value="all">
+                            All Report Types
+                        </option>
+
+                        <option value="blood">
+                            Blood Report
+                        </option>
+
+                        <option value="xray">
+                            X-Ray
+                        </option>
+
+                        <option value="mri">
+                            MRI
+                        </option>
+
+                        <option value="ct">
+                            CT Scan
+                        </option>
+
+                        <option value="skin">
+                            Skin Report
+                        </option>
+
+                        <option value="dna">
+                            DNA Report
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <select
+                        id="trialFilter"
+                    >
+
+                        <option value="all">
+                            All Trials
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EMPTY STATE
+                 ================================================= -->
+
+            <div
+                class="empty-reports"
+                id="emptyReports"
+            >
+
+
+                <div class="empty-report-icon">
+
+                    <i class="bi bi-file-earmark-medical"></i>
+
+                </div>
+
+
+                <h4>
+                    No medical reports available
+                </h4>
+
+
+                <p>
+                    When a report is uploaded for one of your
+                    assigned patients, it will appear here.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REPORT TABLE
+                 ================================================= -->
+
+            <div
+                class="table-responsive report-table-wrapper"
+                id="reportTableWrapper"
+                hidden
+            >
+
+                <table class="report-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Patient
+                            </th>
+
+                            <th>
+                                Report
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Trial
+                            </th>
+
+                            <th>
+                                Uploaded By
+                            </th>
+
+                            <th>
+                                Updated Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="reportTableBody"
+                    >
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REPORT PREVIEW MODAL
+             ===================================================== -->
+
+        <div
+            class="modal fade"
+            id="reportPreviewModal"
+            tabindex="-1"
+        >
+
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+
+                <div class="modal-content">
+
+
+                    <div class="modal-header">
+
+                        <div>
+
+                            <h5
+                                class="modal-title"
+                                id="modalReportTitle"
+                            >
+                                Medical Report
+                            </h5>
+
+                            <small
+                                id="modalPatientName"
+                            ></small>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                        ></button>
+
+                    </div>
+
+
+                    <div class="modal-body">
+
+
+                        <div class="report-preview-info">
+
+
+                            <div>
+
+                                <span>
+                                    Uploaded By
+                                </span>
+
+                                <strong
+                                    id="modalUploadedBy"
+                                >
+                                    --
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Uploaded Date
+                                </span>
+
+                                <strong
+                                    id="modalUploadedDate"
+                                >
+                                    --
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Trial
+                                </span>
+
+                                <strong
+                                    id="modalTrial"
+                                >
+                                    --
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="report-viewer"
+                            id="reportViewer"
+                        >
+
+                            <!-- PDF/image will be loaded here -->
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="modal-footer">
+
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+
+                            Close
+
+                        </button>
+
+
+                        <a
+                            href="#"
+                            id="downloadReport"
+                            class="btn btn-primary"
+                            target="_blank"
+                            rel="noopener"
+                        >
+
+                            <i class="bi bi-download"></i>
+
+                            Open / Download
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                © 2026 MedVisionAI
+            </span>
+
+            <span>
+                Doctor Portal
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- Page JS -->
+
+<script
+    src="../assets/js/doctor_reports.js"
+></script>
+
+
+</body>
+
+</html>

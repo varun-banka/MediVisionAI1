@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Health Timeline | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Health Timeline CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/doctor_health_timeline.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="page-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+
+            <div>
+
+                <h3>MedVisionAI</h3>
+
+                <span>Doctor Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="doctor_dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="doctor_patients.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-people-fill"></i>
+
+                <span>My Patients</span>
+
+            </a>
+
+
+            <a
+                href="doctor_reports.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-file-earmark-medical-fill"></i>
+
+                <span>Medical Reports</span>
+
+            </a>
+
+
+            <a
+                href="doctor_upload_report.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                <span>Upload Report</span>
+
+            </a>
+
+
+            <a
+                href="doctor_appointments.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-calendar-check-fill"></i>
+
+                <span>Appointments</span>
+
+            </a>
+
+
+            <a
+                href="doctor_medicines.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-capsule"></i>
+
+                <span>Medicines</span>
+
+            </a>
+
+
+            <a
+                href="doctor_messages.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-chat-dots-fill"></i>
+
+                <span>Messages</span>
+
+            </a>
+
+
+            <a
+                href="doctor_health_timeline.html"
+                class="nav-item active"
+            >
+
+                <i class="bi bi-clock-history"></i>
+
+                <span>Health Timeline</span>
+
+            </a>
+
+
+            <p class="nav-heading account-heading">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="doctor_profile.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>Profile</span>
+
+            </a>
+
+
+            <a
+                href="doctor_settings.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-gear-fill"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h2>
+                    Health Timeline
+                </h2>
+
+                <p>
+                    Complete chronological medical history of your patients.
+                </p>
+
+            </div>
+
+
+            <div class="doctor-profile">
+
+                <div class="doctor-avatar">
+
+                    <i class="bi bi-person"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="doctorName">
+                        Doctor
+                    </strong>
+
+                    <span>
+                        Doctor
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             PATIENT SELECTOR
+             ===================================================== -->
+
+        <section class="patient-section">
+
+
+            <div class="patient-selector">
+
+
+                <div class="selector-icon">
+
+                    <i class="bi bi-person-vcard"></i>
+
+                </div>
+
+
+                <div class="selector-content">
+
+                    <label for="patientSelect">
+                        Select Patient
+                    </label>
+
+
+                    <select
+                        id="patientSelect"
+                    >
+
+                        <option value="">
+                            Select a patient
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="refresh-button"
+                    id="refreshButton"
+                    title="Refresh"
+                >
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- Selected patient information -->
+
+            <div
+                class="selected-patient"
+                id="selectedPatient"
+                hidden
+            >
+
+                <div class="patient-photo">
+
+                    <i class="bi bi-person-fill"></i>
+
+                </div>
+
+
+                <div class="patient-details">
+
+                    <h3 id="patientName">
+                        Patient
+                    </h3>
+
+                    <div class="patient-meta">
+
+                        <span>
+                            <i class="bi bi-person-badge"></i>
+                            ID:
+                            <strong id="patientId">-</strong>
+                        </span>
+
+                        <span>
+                            <i class="bi bi-calendar3"></i>
+                            Age:
+                            <strong id="patientAge">-</strong>
+                        </span>
+
+                        <span>
+                            <i class="bi bi-gender-ambiguous"></i>
+                            Gender:
+                            <strong id="patientGender">-</strong>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TIMELINE FILTERS
+             ===================================================== -->
+
+        <section
+            class="timeline-controls"
+            id="timelineControls"
+            hidden
+        >
+
+
+            <div class="timeline-title">
+
+                <div>
+
+                    <h3>
+                        Medical Journey
+                    </h3>
+
+                    <p>
+                        All medical events in chronological order.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="filters">
+
+
+                <button
+                    class="filter-button active"
+                    data-filter="all"
+                >
+                    All
+                </button>
+
+
+                <button
+                    class="filter-button"
+                    data-filter="consultation"
+                >
+                    Consultations
+                </button>
+
+
+                <button
+                    class="filter-button"
+                    data-filter="report"
+                >
+                    Reports
+                </button>
+
+
+                <button
+                    class="filter-button"
+                    data-filter="medicine"
+                >
+                    Medicines
+                </button>
+
+
+                <button
+                    class="filter-button"
+                    data-filter="appointment"
+                >
+                    Appointments
+                </button>
+
+
+                <button
+                    class="filter-button"
+                    data-filter="diagnosis"
+                >
+                    Diagnosis
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TIMELINE
+             ===================================================== -->
+
+        <section
+            class="timeline-section"
+            id="timelineSection"
+            hidden
+        >
+
+
+            <div
+                class="timeline"
+                id="timeline"
+            >
+
+                <!-- Dynamic timeline events appear here -->
+
+            </div>
+
+
+            <!-- Loading -->
+
+            <div
+                class="timeline-loading"
+                id="timelineLoading"
+                hidden
+            >
+
+                <div
+                    class="spinner-border text-primary"
+                ></div>
+
+                <p>
+                    Loading medical history...
+                </p>
+
+            </div>
+
+
+            <!-- Empty -->
+
+            <div
+                class="timeline-empty"
+                id="timelineEmpty"
+                hidden
+            >
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-clock-history"></i>
+
+                </div>
+
+                <h3>
+                    No medical history available
+                </h3>
+
+                <p>
+                    No timeline events have been recorded for this patient yet.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             INITIAL STATE
+             ===================================================== -->
+
+        <section
+            class="initial-state"
+            id="initialState"
+        >
+
+            <div class="initial-icon">
+
+                <i class="bi bi-clock-history"></i>
+
+            </div>
+
+            <h3>
+                Patient Health Timeline
+            </h3>
+
+            <p>
+                Select a patient to view their complete medical journey.
+            </p>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                © 2026 MedVisionAI
+            </span>
+
+            <span>
+                Secure Patient Medical History
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- Timeline JS -->
+
+<script
+    src="../assets/js/doctor_health_timeline.js"
+></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,665 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+body {
+    background: #f5fbff;
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    background: #0f172a;
+
+    color: white;
+
+    padding: 30px 20px;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.logo-icon {
+    font-size: 42px;
+
+    color: #5bc0eb;
+}
+
+
+.logo h3 {
+    margin-top: 10px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SIDEBAR MENU
+   ========================================================= */
+
+.sidebar-menu {
+    list-style: none;
+
+    padding: 0;
+}
+
+
+.sidebar-menu li {
+    margin-bottom: 8px;
+}
+
+
+.sidebar-menu li a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px 15px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.sidebar-menu li a:hover {
+    background: #2563eb;
+}
+
+
+.sidebar-menu li.active a {
+    background: #2563eb;
+}
+
+
+.sidebar-menu i {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    min-height: 100vh;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #f5fbff 50%,
+            #eaf7ff 100%
+        );
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.topbar h2 {
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+
+.topbar p {
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+.profile-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.notification-icon {
+    color: #2563eb;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+.profile-image {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.medicine-section,
+.schedule-section {
+    margin-bottom: 30px;
+}
+
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.section-header h3 {
+    font-size: 22px;
+
+    font-weight: 600;
+}
+
+
+.section-header p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   REMINDER BADGE
+   ========================================================= */
+
+.reminder-badge {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 25px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   TABLE CARD
+   ========================================================= */
+
+.medicine-table-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.medicine-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 1000px;
+}
+
+
+.medicine-table th {
+    padding: 16px 14px;
+
+    text-align: left;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    background: #f8fbff;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+.medicine-table td {
+    padding: 17px 14px;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid #edf2f7;
+
+    vertical-align: middle;
+}
+
+
+.medicine-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+
+/* =========================================================
+   MEDICINE NAME
+   ========================================================= */
+
+.medicine-name {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-weight: 600;
+}
+
+
+.medicine-icon {
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eaf3ff;
+
+    color: #2563eb;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.medicine-status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.medicine-status.active {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+
+.medicine-status.completed {
+    background: #e2e8f0;
+
+    color: #475569;
+}
+
+
+.medicine-status.paused {
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-cell {
+    text-align: center;
+
+    padding: 60px !important;
+
+    color: #64748b;
+}
+
+
+.loading-cell .spinner-border {
+    color: #2563eb;
+
+    margin-bottom: 12px;
+}
+
+
+.loading-cell p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   TODAY'S SCHEDULE
+   ========================================================= */
+
+.schedule-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+
+.schedule-card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+
+    border-left: 4px solid #2563eb;
+}
+
+
+.schedule-time {
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+
+    margin-bottom: 12px;
+}
+
+
+.schedule-medicine {
+    font-size: 17px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+
+.schedule-dosage {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.schedule-reminder {
+    margin-top: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+}
+
+
+.empty-schedule {
+    grid-column: 1 / -1;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 50px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+}
+
+
+.empty-schedule i {
+    display: block;
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   SMS REMINDER CARD
+   ========================================================= */
+
+.sms-reminder-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    margin-bottom: 30px;
+}
+
+
+.sms-icon {
+    width: 55px;
+
+    height: 55px;
+
+    min-width: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+
+.sms-reminder-card h4 {
+    margin-bottom: 5px;
+
+    font-size: 17px;
+
+    color: #1e40af;
+}
+
+
+.sms-reminder-card p {
+    margin-bottom: 5px;
+
+    color: #475569;
+
+    font-size: 13px;
+}
+
+
+.sms-reminder-card small {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .topbar h2 {
+        font-size: 24px;
+    }
+
+    .profile-area span {
+        display: none;
+    }
+
+    .section-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .reminder-badge {
+        font-size: 11px;
+    }
+
+    .sms-reminder-card {
+        align-items: flex-start;
+    }
+
+}

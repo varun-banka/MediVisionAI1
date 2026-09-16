@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Medicines | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Hospital Medicines CSS -->
+    <link rel="stylesheet"
+          href="hospital_medicines.css">
+
+</head>
+
+
+<body>
+
+<div class="wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            <h3>MedVisionAI</h3>
+
+            <span>Hospital Portal</span>
+
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="hospital_dashboard.html">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_doctors.html">
+                    <i class="bi bi-person-badge-fill"></i>
+                    <span>Doctors</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_patients.html">
+                    <i class="bi bi-people-fill"></i>
+                    <span>Patients</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_appointments.html">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    <span>Appointments</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_reports.html">
+                    <i class="bi bi-file-medical-fill"></i>
+                    <span>Medical Reports</span>
+                </a>
+            </li>
+
+
+            <li class="active">
+                <a href="hospital_medicines.html">
+                    <i class="bi bi-capsule-pill"></i>
+                    <span>Medicines</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_messages.html">
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <span>Messages</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_profile.html">
+                    <i class="bi bi-hospital-fill"></i>
+                    <span>Hospital Profile</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_settings.html">
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="hospital_login.html"
+               class="logout-link">
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button">
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <h2>Hospital Medicines</h2>
+
+                    <p>
+                        Manage medicines available in the hospital.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-btn"
+                    id="notificationBtn"
+                    type="button">
+
+                    <i class="bi bi-bell-fill"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="hospital-profile">
+
+                    <div class="hospital-avatar">
+
+                        <i class="bi bi-hospital-fill"></i>
+
+                    </div>
+
+
+                    <div class="hospital-info">
+
+                        <strong id="hospitalName">
+                            Hospital
+                        </strong>
+
+                        <span>
+                            Hospital Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <section class="page-header">
+
+            <div>
+
+                <span class="page-label">
+                    Pharmacy Management
+                </span>
+
+                <h1>Medicines</h1>
+
+                <p>
+                    Manage medicines, stock and availability
+                    in your hospital.
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-medicine-btn"
+                id="addMedicineBtn"
+                type="button">
+
+                <i class="bi bi-plus-circle-fill"></i>
+
+                Add Medicine
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="medicine-stats">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon medicine-stat-icon">
+
+                    <i class="bi bi-capsule-pill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total Medicines</span>
+
+                    <h2 id="totalMedicines">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon available-stat-icon">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Available</span>
+
+                    <h2 id="availableMedicines">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon low-stock-stat-icon">
+
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Low Stock</span>
+
+                    <h2 id="lowStockMedicines">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon out-stock-stat-icon">
+
+                    <i class="bi bi-x-circle-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Out of Stock</span>
+
+                    <h2 id="outOfStockMedicines">0</h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MEDICINES SECTION
+        ================================================== -->
+
+        <section class="medicines-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h3>Medicine Inventory</h3>
+
+                    <p>
+                        Medicines currently registered
+                        in the hospital pharmacy.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SEARCH + FILTER -->
+
+            <div class="medicine-tools">
+
+
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="medicineSearch"
+                        placeholder="Search medicine by name or manufacturer..."
+                    >
+
+                </div>
+
+
+                <select id="categoryFilter">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="Tablet">
+                        Tablet
+                    </option>
+
+                    <option value="Capsule">
+                        Capsule
+                    </option>
+
+                    <option value="Syrup">
+                        Syrup
+                    </option>
+
+                    <option value="Injection">
+                        Injection
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <select id="stockFilter">
+
+                    <option value="all">
+                        All Stock
+                    </option>
+
+                    <option value="available">
+                        Available
+                    </option>
+
+                    <option value="low">
+                        Low Stock
+                    </option>
+
+                    <option value="out">
+                        Out of Stock
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+                <table class="medicines-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Medicine</th>
+
+                            <th>Category</th>
+
+                            <th>Manufacturer</th>
+
+                            <th>Quantity</th>
+
+                            <th>Expiry Date</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="medicinesTableBody">
+
+                        <!-- Medicines inserted by JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState">
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-capsule"></i>
+
+                    </div>
+
+
+                    <h4>No medicines found</h4>
+
+
+                    <p>
+                        Medicines registered with the
+                        hospital will appear here.
+                    </p>
+
+
+                    <button
+                        class="empty-action"
+                        id="emptyAddMedicineBtn"
+                        type="button">
+
+                        <i class="bi bi-plus-circle"></i>
+
+                        Add Medicine
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADD MEDICINE MODAL
+        ================================================== -->
+
+        <div
+            class="modal-overlay"
+            id="medicineModal">
+
+
+            <div class="medicine-modal">
+
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <h3>Add New Medicine</h3>
+
+                        <p>
+                            Enter medicine information below.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="close-modal"
+                        id="closeMedicineModal"
+                        type="button">
+
+                        <i class="bi bi-x-lg"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <form id="medicineForm">
+
+
+                    <div class="form-grid">
+
+
+                        <!-- Medicine Name -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Medicine Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="medicineName"
+                                placeholder="Enter medicine name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Generic Name -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Generic Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="genericName"
+                                placeholder="Enter generic name"
+                            >
+
+                        </div>
+
+
+                        <!-- Category -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Category
+                            </label>
+
+                            <select
+                                id="medicineCategory"
+                                required>
+
+                                <option value="">
+                                    Select category
+                                </option>
+
+                                <option value="Tablet">
+                                    Tablet
+                                </option>
+
+                                <option value="Capsule">
+                                    Capsule
+                                </option>
+
+                                <option value="Syrup">
+                                    Syrup
+                                </option>
+
+                                <option value="Injection">
+                                    Injection
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Manufacturer -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Manufacturer
+                            </label>
+
+                            <input
+                                type="text"
+                                id="manufacturer"
+                                placeholder="Enter manufacturer"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Quantity -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Quantity
+                            </label>
+
+                            <input
+                                type="number"
+                                id="medicineQuantity"
+                                placeholder="Enter quantity"
+                                min="0"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Price -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Price Per Unit
+                            </label>
+
+                            <input
+                                type="number"
+                                id="medicinePrice"
+                                placeholder="Enter price"
+                                min="0"
+                                step="0.01"
+                            >
+
+                        </div>
+
+
+                        <!-- Expiry -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Expiry Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="expiryDate"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Batch -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Batch Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="batchNumber"
+                                placeholder="Enter batch number"
+                            >
+
+                        </div>
+
+
+                        <!-- Description -->
+
+                        <div class="form-group full-width">
+
+                            <label>
+                                Description
+                            </label>
+
+                            <textarea
+                                id="medicineDescription"
+                                rows="3"
+                                placeholder="Enter medicine description">
+                            </textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="modal-actions">
+
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelMedicineBtn">
+
+                            Cancel
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="save-medicine-btn">
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Add Medicine
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 MedVisionAI.
+                Hospital Management Portal.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- SIDEBAR OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay">
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="hospital_medicines.js"></script>
+
+</body>
+
+</html>

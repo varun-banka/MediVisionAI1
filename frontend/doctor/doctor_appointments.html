@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Appointments | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Page CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/doctor_appointments.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="page-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+
+            <div>
+
+                <h3>MedVisionAI</h3>
+
+                <span>Doctor Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="doctor_dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="doctor_patients.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-people-fill"></i>
+
+                <span>My Patients</span>
+
+            </a>
+
+
+            <a
+                href="doctor_reports.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-file-earmark-medical-fill"></i>
+
+                <span>Medical Reports</span>
+
+            </a>
+
+
+            <a
+                href="doctor_upload_report.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                <span>Upload Report</span>
+
+            </a>
+
+
+            <a
+                href="doctor_appointments.html"
+                class="nav-item active"
+            >
+
+                <i class="bi bi-calendar-check-fill"></i>
+
+                <span>Appointments</span>
+
+            </a>
+
+
+            <a
+                href="doctor_medicines.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-capsule"></i>
+
+                <span>Medicines</span>
+
+            </a>
+
+
+            <a
+                href="doctor_messages.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-chat-dots-fill"></i>
+
+                <span>Messages</span>
+
+            </a>
+
+
+            <a
+                href="doctor_health_timeline.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-clock-history"></i>
+
+                <span>Health Timeline</span>
+
+            </a>
+
+
+            <p class="nav-heading account-heading">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="doctor_profile.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>Profile</span>
+
+            </a>
+
+
+            <a
+                href="doctor_settings.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-gear-fill"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h2>
+                    Appointments
+                </h2>
+
+                <p>
+                    Manage your scheduled patient appointments.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
+                    <i class="bi bi-bell"></i>
+
+                </button>
+
+
+                <div class="doctor-mini-profile">
+
+                    <div class="doctor-avatar">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="doctorName">
+                            Doctor
+                        </strong>
+
+                        <span>
+                            Doctor
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             APPOINTMENT SUMMARY
+             ===================================================== -->
+
+        <section class="summary-grid">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon blue">
+
+                    <i class="bi bi-calendar-event"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Today's Appointments
+                    </span>
+
+                    <h3 id="todayCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon green">
+
+                    <i class="bi bi-calendar-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Upcoming
+                    </span>
+
+                    <h3 id="upcomingCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon orange">
+
+                    <i class="bi bi-hourglass-split"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Pending
+                    </span>
+
+                    <h3 id="pendingCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon purple">
+
+                    <i class="bi bi-check-circle"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <h3 id="completedCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FILTER BAR
+             ===================================================== -->
+
+        <section class="filter-card">
+
+
+            <div class="filter-group">
+
+                <label>
+                    Search Patient
+                </label>
+
+                <div class="search-input">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="searchPatient"
+                        placeholder="Search patient..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="appointmentDate"
+                >
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <label>
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="">
+                        All Status
+                    </option>
+
+                    <option value="scheduled">
+                        Scheduled
+                    </option>
+
+                    <option value="confirmed">
+                        Confirmed
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                    <option value="cancelled">
+                        Cancelled
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="clear-filter"
+                id="clearFilters"
+            >
+
+                <i class="bi bi-arrow-clockwise"></i>
+
+                Reset
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             APPOINTMENT TABLE
+             ===================================================== -->
+
+        <section class="appointments-card">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <h3>
+                        Patient Appointments
+                    </h3>
+
+                    <p>
+                        Appointments assigned to you by
+                        Hospital Management or created by you.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="refresh-button"
+                    id="refreshAppointments"
+                >
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Loading -->
+
+            <div
+                class="loading-state"
+                id="loadingState"
+            >
+
+                <div
+                    class="spinner-border text-primary"
+                ></div>
+
+                <p>
+                    Loading appointments...
+                </p>
+
+            </div>
+
+
+
+            <!-- Empty -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+                hidden
+            >
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-calendar-x"></i>
+
+                </div>
+
+                <h4>
+                    No appointments found
+                </h4>
+
+                <p>
+                    Appointments created by Hospital Management
+                    or the doctor will appear here.
+                </p>
+
+            </div>
+
+
+
+            <!-- Table -->
+
+            <div
+                class="table-responsive"
+                id="tableContainer"
+                hidden
+            >
+
+                <table class="appointments-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Patient
+                            </th>
+
+                            <th>
+                                Appointment
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Trial
+                            </th>
+
+                            <th>
+                                Created By
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Reminder
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="appointmentsTableBody"
+                    >
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="footer">
+
+            <span>
+                © 2026 MedVisionAI
+            </span>
+
+            <span>
+                Doctor Portal
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     APPOINTMENT DETAILS MODAL
+     ===================================================== -->
+
+<div
+    class="modal fade"
+    id="appointmentModal"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Appointment Details
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Patient
+                    </span>
+
+                    <strong id="modalPatient">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Date
+                    </span>
+
+                    <strong id="modalDate">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Time
+                    </span>
+
+                    <strong id="modalTime">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Appointment Type
+                    </span>
+
+                    <strong id="modalType">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Trial
+                    </span>
+
+                    <strong id="modalTrial">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Created By
+                    </span>
+
+                    <strong id="modalCreatedBy">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="modalStatus">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Reminder
+                    </span>
+
+                    <strong id="modalReminder">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-notes">
+
+                    <span>
+                        Notes
+                    </span>
+
+                    <p id="modalNotes">
+                        --
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- Page JS -->
+
+<script
+    src="../assets/js/doctor_appointments.js"
+></script>
+
+
+</body>
+
+</html>

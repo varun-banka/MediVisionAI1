@@ -1,0 +1,295 @@
+/* ==========================================
+   MEDVISION AI
+   Developed by: MedVisionAI
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #eef9ff 35%,
+        #dff3ff 70%,
+        #cdefff 100%
+    );
+
+    color:#222;
+    overflow-x:hidden;
+}
+
+/*=============================
+NAVBAR
+=============================*/
+
+.navbar{
+
+    background:white !important;
+
+    padding:15px 0;
+
+    transition:.4s;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.navbar-brand{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.nav-link{
+
+    font-weight:500;
+
+    margin-left:15px;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#0d6efd !important;
+
+}
+
+.btn{
+
+    border-radius:40px;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/*=============================
+HERO
+=============================*/
+
+.hero{
+
+    min-height:92vh;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.hero h1{
+
+    font-size:60px;
+
+    font-weight:700;
+
+    color:#0b5ed7;
+
+}
+
+.hero p{
+
+    font-size:19px;
+
+    line-height:35px;
+
+    color:#555;
+
+}
+
+.hero-image{
+
+    border-radius:25px;
+
+    box-shadow:0 25px 50px rgba(0,0,0,.15);
+
+    transition:.5s;
+
+}
+
+.hero-image:hover{
+
+    transform:scale(1.03);
+
+}
+
+/*=============================
+BUTTONS
+=============================*/
+
+.btn-primary{
+
+    background:#0d6efd;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#0b5ed7;
+
+}
+
+.btn-outline-dark:hover{
+
+    color:white;
+
+}
+
+/*=============================
+FEATURES
+=============================*/
+
+#features{
+
+    padding-top:80px;
+
+    padding-bottom:80px;
+
+}
+
+.feature-card{
+
+    border:none;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    background:white;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 50px rgba(0,0,0,.15);
+
+}
+
+.feature-card .card-body{
+
+    padding:40px;
+
+}
+
+.feature-card i{
+
+    transition:.4s;
+
+}
+
+.feature-card:hover i{
+
+    transform:scale(1.2);
+
+}
+
+/*=============================
+COMPARISON SECTION
+=============================*/
+
+.comparison{
+
+    padding-top:80px;
+
+    padding-bottom:80px;
+
+}
+
+.comparison-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+}
+
+.comparison-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 25px 50px rgba(0,0,0,.15);
+
+}
+
+.comparison-card img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+/*=============================
+SECTION TITLES
+=============================*/
+
+section h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#0d6efd;
+
+}
+
+section h3{
+
+    font-weight:600;
+
+}
+
+/*=============================
+UTILITY
+=============================*/
+
+.shadow-lg{
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15)!important;
+
+}
+
+.rounded-4{
+
+    border-radius:25px!important;
+
+}

@@ -1,0 +1,14 @@
+@"
+.venv/
+.venv-1/
+__pycache__/
+*.pyc
+
+.env
+
+datasets/
+HAM10000_images_part_1/
+HAM10000_images_part_2/
+
+.git-backup/
+"@ | Set-Content .gitignore

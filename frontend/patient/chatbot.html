@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Health Assistant | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Patient AI Chatbot CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/patient_AI_chatbot.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MAIN WRAPPER
+     ===================================================== -->
+
+<div class="container-fluid">
+
+    <div class="row">
+
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+
+        <div class="col-lg-2 sidebar">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <h2>
+                    ❤️ MedVisionAI
+                </h2>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <ul>
+
+                <!-- Dashboard -->
+
+                <li>
+
+                    <a href="dashboard.html">
+
+                        <i class="bi bi-grid"></i>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Medical Reports -->
+
+                <li>
+
+                    <a href="reports.html">
+
+                        <i class="bi bi-file-earmark-medical"></i>
+
+                        <span>
+                            Medical Reports
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- AI Chatbot -->
+
+                <li class="active">
+
+                    <a href="chatbot.html">
+
+                        <i class="bi bi-robot"></i>
+
+                        <span>
+                            AI Chatbot
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Upload Report -->
+
+                <li>
+
+                    <a href="reports.html">
+
+                        <i class="bi bi-cloud-arrow-up"></i>
+
+                        <span>
+                            Upload Report
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Appointments -->
+
+                <li>
+
+                    <a href="appointments.html">
+
+                        <i class="bi bi-calendar-check"></i>
+
+                        <span>
+                            Appointments
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Medicine Reminder -->
+
+                <li>
+
+                    <a href="medicines.html">
+
+                        <i class="bi bi-capsule"></i>
+
+                        <span>
+                            Medicine Reminder
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Messages -->
+
+                <li>
+
+                    <a href="messages.html">
+
+                        <i class="bi bi-chat-dots"></i>
+
+                        <span>
+                            Messages
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Health Timeline -->
+
+                <li>
+
+                    <a href="timeline.html">
+
+                        <i class="bi bi-clock-history"></i>
+
+                        <span>
+                            Health Timeline
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Profile -->
+
+                <li>
+
+                    <a href="profile.html">
+
+                        <i class="bi bi-person-circle"></i>
+
+                        <span>
+                            Profile
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Settings -->
+
+                <li>
+
+                    <a href="settings.html">
+
+                        <i class="bi bi-gear"></i>
+
+                        <span>
+                            Settings
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <!-- Logout -->
+
+                <li>
+
+                    <a href="../auth/patient_login.html">
+
+                        <i class="bi bi-box-arrow-right"></i>
+
+                        <span>
+                            Logout
+                        </span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+
+        <div class="col-lg-10">
+
+
+            <!-- =================================================
+                 TOP BAR
+                 ================================================= -->
+
+            <div class="topbar">
+
+                <h2>
+                    🤖 AI Health Assistant
+                </h2>
+
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <!-- Notification -->
+
+                    <i
+                        class="bi bi-bell-fill"
+                        style="
+                            color:#2563eb;
+                            font-size:20px;
+                            cursor:pointer;
+                        "
+                    ></i>
+
+
+                    <!-- Patient Profile -->
+
+                    <div
+                        class="d-flex align-items-center gap-2"
+                    >
+
+                        <img
+                            src="https://i.pravatar.cc/150?img=32"
+                            alt="Patient Profile"
+                            style="
+                                width:42px;
+                                height:42px;
+                                border-radius:50%;
+                                object-fit:cover;
+                            "
+                        >
+
+                        <span
+                            style="
+                                font-weight:500;
+                            "
+                        >
+                            Varun
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 CHAT + UPLOAD SECTION
+                 ================================================= -->
+
+            <div class="chat-container">
+
+
+                <!-- =================================================
+                     CHAT AREA
+                     ================================================= -->
+
+                <div class="chat-area">
+
+
+                    <!-- AI FIRST MESSAGE -->
+
+                    <div class="ai-message">
+
+                        <h5>
+
+                            🤖 MedVisionAI Health Assistant
+
+                        </h5>
+
+
+                        <div class="ai-online">
+
+                            AI Assistant Online
+
+                        </div>
+
+
+                        <p style="margin-top:15px;">
+
+                            👋 Hello Varun!
+
+                        </p>
+
+
+                        <p>
+
+                            I'm your MedVisionAI health assistant.
+
+                            You can upload your medical report or
+                            ask me questions about your health.
+
+                        </p>
+
+
+                        <p>
+
+                            I can help explain medical information
+                            in simple and understandable language.
+
+                        </p>
+
+
+                        <strong>
+
+                            I can help you understand:
+
+                        </strong>
+
+
+                        <ul>
+
+                            <li>
+                                🩸 Blood Reports
+                            </li>
+
+                            <li>
+                                🫁 Chest X-rays
+                            </li>
+
+                            <li>
+                                🧠 MRI Reports
+                            </li>
+
+                            <li>
+                                🩻 CT Scan Reports
+                            </li>
+
+                            <li>
+                                🧴 Skin Disease Reports
+                            </li>
+
+                            <li>
+                                🧬 DNA Reports
+                            </li>
+
+                        </ul>
+
+
+                        <p>
+
+                            Upload your report on the right side
+                            and then ask me anything about it.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CHAT MESSAGES WILL APPEAR HERE
+                         ================================================= -->
+
+                    <div id="chatMessages">
+
+
+                        <!-- Example bot message -->
+
+                        <!--
+                        <div class="bot-message">
+
+                            Your report shows...
+
+                        </div>
+                        -->
+
+
+                        <!-- Example user message -->
+
+                        <!--
+                        <div class="user-message">
+
+                            What does my report mean?
+
+                        </div>
+                        -->
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         QUICK QUESTIONS
+                         ================================================= -->
+
+                    <div class="question-cards">
+
+
+                        <button
+                            type="button"
+                            onclick="askQuestion('Explain my report in simple language')"
+                        >
+
+                            <i class="bi bi-file-text"></i>
+
+                            Explain my report
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="askQuestion('Give me a summary of my report')"
+                        >
+
+                            <i class="bi bi-card-text"></i>
+
+                            Summarize Report
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="askQuestion('Explain my medicines')"
+                        >
+
+                            <i class="bi bi-capsule"></i>
+
+                            Medicine Details
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            onclick="askQuestion('What food should I take?')"
+                        >
+
+                            <i class="bi bi-egg-fried"></i>
+
+                            Food Recommendations
+
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CHAT INPUT
+                         ================================================= -->
+
+                    <div class="chat-input">
+
+
+                        <!-- Attachment Button -->
+
+                        <button
+                            type="button"
+                            id="attachmentButton"
+                            title="Attach Report"
+                        >
+
+                            <i class="bi bi-paperclip"></i>
+
+                        </button>
+
+
+                        <!-- Hidden File Input -->
+
+                        <input
+                            type="file"
+                            id="chatFileInput"
+                            accept="
+                                .pdf,
+                                .jpg,
+                                .jpeg,
+                                .png,
+                                .dicom,
+                                .txt
+                            "
+                            style="display:none;"
+                        >
+
+
+                        <!-- Message Input -->
+
+                        <input
+                            type="text"
+                            id="messageInput"
+                            placeholder="Ask anything about your report..."
+                            autocomplete="off"
+                        >
+
+
+                        <!-- Send Button -->
+
+                        <button
+                            type="button"
+                            class="send"
+                            id="sendButton"
+                            title="Send Message"
+                        >
+
+                            <i class="bi bi-send-fill"></i>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RIGHT UPLOAD PANEL
+                     ================================================= -->
+
+                <div class="upload-panel">
+
+
+                    <h4>
+
+                        <i
+                            class="bi bi-file-earmark-medical"
+                            style="color:#2563eb;"
+                        ></i>
+
+                        Upload Medical Report
+
+                    </h4>
+
+
+
+                    <!-- Upload Box -->
+
+                    <div
+                        class="upload-box"
+                        id="uploadBox"
+                    >
+
+
+                        <i
+                            class="bi bi-cloud-arrow-up-fill"
+                        ></i>
+
+
+                        <h5>
+
+                            Upload your report
+
+                        </h5>
+
+
+                        <p>
+
+                            Drag & Drop your file here
+
+                        </p>
+
+
+                        <p>
+
+                            or
+
+                        </p>
+
+
+                        <!-- File Input -->
+
+                        <input
+                            type="file"
+                            id="reportInput"
+                            accept="
+                                .pdf,
+                                .jpg,
+                                .jpeg,
+                                .png,
+                                .dicom,
+                                .txt
+                            "
+                        >
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         SUPPORTED FILES
+                         ================================================= -->
+
+                    <h5>
+
+                        Supported Files
+
+                    </h5>
+
+
+                    <div class="tags">
+
+
+                        <span>
+
+                            <i class="bi bi-file-pdf"></i>
+
+                            PDF
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="bi bi-image"></i>
+
+                            X-ray
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="bi bi-camera"></i>
+
+                            MRI
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="bi bi-layers"></i>
+
+                            CT Scan
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="bi bi-droplet"></i>
+
+                            Blood
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="bi bi-dna"></i>
+
+                            DNA
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         UPLOAD INFORMATION
+                         ================================================= -->
+
+                    <div
+                        style="
+                            margin-top:25px;
+                            padding:15px;
+                            background:#f8fafc;
+                            border-radius:12px;
+                            border:1px solid #e5edf5;
+                        "
+                    >
+
+                        <p
+                            style="
+                                margin:0;
+                                font-size:12px;
+                                color:#64748b;
+                                line-height:1.7;
+                            "
+                        >
+
+                            <i
+                                class="bi bi-shield-check"
+                                style="color:#16a34a;"
+                            ></i>
+
+                            Your uploaded report will be analyzed
+                            by the MedVisionAI system.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         AI EXPLANATION
+                         ================================================= -->
+
+                    <div
+                        style="
+                            margin-top:15px;
+                            padding:15px;
+                            background:#eff6ff;
+                            border-radius:12px;
+                            border:1px solid #dbeafe;
+                        "
+                    >
+
+                        <p
+                            style="
+                                margin:0;
+                                font-size:12px;
+                                color:#1d4ed8;
+                                line-height:1.7;
+                            "
+                        >
+
+                            <i class="bi bi-robot"></i>
+
+                            After uploading, you can ask the AI
+                            questions about your report.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="../assets/js/chatbot.js"></script>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<script>
+
+/* =========================================================
+   QUICK QUESTION
+   ========================================================= */
+
+function askQuestion(question) {
+
+    const input =
+        document.getElementById("messageInput");
+
+    input.value = question;
+
+    input.focus();
+
+}
+
+
+/* =========================================================
+   ATTACHMENT BUTTON
+   ========================================================= */
+
+const attachmentButton =
+    document.getElementById("attachmentButton");
+
+const chatFileInput =
+    document.getElementById("chatFileInput");
+
+
+if (attachmentButton && chatFileInput) {
+
+    attachmentButton.addEventListener(
+        "click",
+        function () {
+
+            chatFileInput.click();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CHAT FILE SELECTED
+   ========================================================= */
+
+if (chatFileInput) {
+
+    chatFileInput.addEventListener(
+        "change",
+        function () {
+
+            if (this.files.length > 0) {
+
+                const file =
+                    this.files[0];
+
+                const input =
+                    document.getElementById("messageInput");
+
+                input.value =
+                    "Explain this uploaded report: "
+                    + file.name;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   REPORT UPLOAD
+   ========================================================= */
+
+const reportInput =
+    document.getElementById("reportInput");
+
+
+if (reportInput) {
+
+    reportInput.addEventListener(
+        "change",
+        function () {
+
+            if (this.files.length > 0) {
+
+                const file =
+                    this.files[0];
+
+                console.log(
+                    "Selected report:",
+                    file.name
+                );
+
+            }
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

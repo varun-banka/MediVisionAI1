@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Dashboard | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Hospital Dashboard CSS -->
+    <link rel="stylesheet" href="hospital_dashboard.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            <h3>MedVisionAI</h3>
+
+            <span>Hospital Portal</span>
+
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+            <li class="active" data-page="dashboard">
+
+                <a href="hospital_dashboard.html">
+
+                    <i class="bi bi-grid-1x2-fill"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="doctors">
+
+                <a href="hospital_doctors.html">
+
+                    <i class="bi bi-person-badge-fill"></i>
+
+                    <span>Doctors</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="patients">
+
+                <a href="hospital_patients.html">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>Patients</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="appointments">
+
+                <a href="hospital_appointments.html">
+
+                    <i class="bi bi-calendar-check-fill"></i>
+
+                    <span>Appointments</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="reports">
+
+                <a href="hospital_reports.html">
+
+                    <i class="bi bi-file-medical-fill"></i>
+
+                    <span>Medical Reports</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="medicines">
+
+                <a href="hospital_medicines.html">
+
+                    <i class="bi bi-capsule-pill"></i>
+
+                    <span>Medicines</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="messages">
+
+                <a href="hospital_messages.html">
+
+                    <i class="bi bi-chat-dots-fill"></i>
+
+                    <span>Messages</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="profile">
+
+                <a href="hospital_profile.html">
+
+                    <i class="bi bi-hospital-fill"></i>
+
+                    <span>Hospital Profile</span>
+
+                </a>
+
+            </li>
+
+
+            <li data-page="settings">
+
+                <a href="hospital_settings.html">
+
+                    <i class="bi bi-gear-fill"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+            <a href="hospital_login.html" class="logout-link">
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                >
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <h2>Hospital Dashboard</h2>
+
+                    <p>
+                        Manage your hospital operations from one place.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <!-- Notification -->
+
+                <button
+                    class="notification-btn"
+                    id="notificationBtn"
+                    type="button"
+                    title="Notifications"
+                >
+
+                    <i class="bi bi-bell-fill"></i>
+
+                    <span
+                        class="notification-dot"
+                        id="notificationDot"
+                    ></span>
+
+                </button>
+
+
+                <!-- Hospital Profile -->
+
+                <div class="hospital-profile">
+
+                    <div class="hospital-avatar">
+
+                        <i class="bi bi-hospital-fill"></i>
+
+                    </div>
+
+                    <div class="hospital-info">
+
+                        <strong id="hospitalName">
+                            Hospital
+                        </strong>
+
+                        <span>
+                            Hospital Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             WELCOME SECTION
+        ================================================== -->
+
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-label">
+                    Hospital Management
+                </span>
+
+                <h1>
+                    Welcome Back 👋
+                </h1>
+
+                <p>
+                    Manage doctors, patients, appointments and
+                    medical records efficiently with MedVisionAI.
+                </p>
+
+            </div>
+
+
+            <div class="welcome-icon">
+
+                <i class="bi bi-hospital"></i>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OVERVIEW CARDS
+        ================================================== -->
+
+        <section class="overview-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h3>Hospital Overview</h3>
+
+                    <p>
+                        Current hospital statistics
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="overview-grid">
+
+
+                <!-- Doctors -->
+
+                <div class="overview-card">
+
+                    <div class="card-icon doctors-icon">
+
+                        <i class="bi bi-person-badge-fill"></i>
+
+                    </div>
+
+                    <div class="card-details">
+
+                        <span>Total Doctors</span>
+
+                        <h2 id="totalDoctors">--</h2>
+
+                        <small>
+                            Registered doctors
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Patients -->
+
+                <div class="overview-card">
+
+                    <div class="card-icon patients-icon">
+
+                        <i class="bi bi-people-fill"></i>
+
+                    </div>
+
+                    <div class="card-details">
+
+                        <span>Total Patients</span>
+
+                        <h2 id="totalPatients">--</h2>
+
+                        <small>
+                            Registered patients
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Appointments -->
+
+                <div class="overview-card">
+
+                    <div class="card-icon appointments-icon">
+
+                        <i class="bi bi-calendar-check-fill"></i>
+
+                    </div>
+
+                    <div class="card-details">
+
+                        <span>Today's Appointments</span>
+
+                        <h2 id="todayAppointments">--</h2>
+
+                        <small>
+                            Scheduled today
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Reports -->
+
+                <div class="overview-card">
+
+                    <div class="card-icon reports-icon">
+
+                        <i class="bi bi-file-medical-fill"></i>
+
+                    </div>
+
+                    <div class="card-details">
+
+                        <span>Medical Reports</span>
+
+                        <h2 id="totalReports">--</h2>
+
+                        <small>
+                            Available reports
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MAIN DASHBOARD GRID
+        ================================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- =============================================
+                 RECENT APPOINTMENTS
+            ============================================== -->
+
+            <div class="dashboard-card appointments-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>Recent Appointments</h3>
+
+                        <p>
+                            Latest scheduled appointments
+                        </p>
+
+                    </div>
+
+                    <a href="hospital_appointments.html">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="empty-state"
+                    id="appointmentsEmpty"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-calendar-x"></i>
+
+                    </div>
+
+                    <h4>No appointments yet</h4>
+
+                    <p>
+                        Appointments created by hospital management
+                        will appear here.
+                    </p>
+
+                    <a
+                        href="hospital_appointments.html"
+                        class="empty-action"
+                    >
+
+                        Manage Appointments
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <!-- Dynamic appointments will be inserted here -->
+
+                <div
+                    class="appointments-list"
+                    id="appointmentsList"
+                ></div>
+
+            </div>
+
+
+            <!-- =============================================
+                 RECENT ACTIVITY
+            ============================================== -->
+
+            <div class="dashboard-card activity-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>Recent Activity</h3>
+
+                        <p>
+                            Latest hospital activities
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="empty-state small-empty"
+                    id="activityEmpty"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-clock-history"></i>
+
+                    </div>
+
+                    <h4>No recent activity</h4>
+
+                    <p>
+                        Hospital activities will appear here
+                        once data is available.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="activity-list"
+                    id="activityList"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MANAGEMENT SHORTCUTS
+        ================================================== -->
+
+        <section class="management-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h3>Management</h3>
+
+                    <p>
+                        Quickly access hospital management modules.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="management-grid">
+
+
+                <!-- Doctors -->
+
+                <a
+                    href="hospital_doctors.html"
+                    class="management-card"
+                >
+
+                    <div class="management-icon">
+
+                        <i class="bi bi-person-badge-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Doctors</h4>
+
+                        <p>
+                            Manage hospital doctors
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right arrow-icon"></i>
+
+                </a>
+
+
+                <!-- Patients -->
+
+                <a
+                    href="hospital_patients.html"
+                    class="management-card"
+                >
+
+                    <div class="management-icon">
+
+                        <i class="bi bi-people-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Patients</h4>
+
+                        <p>
+                            Manage registered patients
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right arrow-icon"></i>
+
+                </a>
+
+
+                <!-- Appointments -->
+
+                <a
+                    href="hospital_appointments.html"
+                    class="management-card"
+                >
+
+                    <div class="management-icon">
+
+                        <i class="bi bi-calendar-check-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Appointments</h4>
+
+                        <p>
+                            Schedule patient appointments
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right arrow-icon"></i>
+
+                </a>
+
+
+                <!-- Reports -->
+
+                <a
+                    href="hospital_reports.html"
+                    class="management-card"
+                >
+
+                    <div class="management-icon">
+
+                        <i class="bi bi-file-medical-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Medical Reports</h4>
+
+                        <p>
+                            View patient reports
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right arrow-icon"></i>
+
+                </a>
+
+
+                <!-- Medicines -->
+
+                <a
+                    href="hospital_medicines.html"
+                    class="management-card"
+                >
+
+                    <div class="management-icon">
+
+                        <i class="bi bi-capsule-pill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Medicines</h4>
+
+                        <p>
+                            Monitor prescriptions
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right arrow-icon"></i>
+
+                </a>
+
+
+                <!-- Messages -->
+
+                <a
+                    href="hospital_messages.html"
+                    class="management-card"
+                >
+
+                    <div class="management-icon">
+
+                        <i class="bi bi-chat-dots-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>Messages</h4>
+
+                        <p>
+                            Communicate with staff
+                        </p>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right arrow-icon"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK INFORMATION
+        ================================================== -->
+
+        <section class="information-section">
+
+            <div class="information-card">
+
+                <div class="information-icon">
+
+                    <i class="bi bi-info-circle-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h4>Hospital Management</h4>
+
+                    <p>
+                        Doctors, patients, appointments and medical
+                        reports will automatically appear here once
+                        they are connected to the hospital backend.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 MedVisionAI. Hospital Management Portal.
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     MOBILE SIDEBAR OVERLAY
+====================================================== -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- Hospital Dashboard JS -->
+
+<script src="hospital_dashboard.js"></script>
+
+</body>
+
+</html>

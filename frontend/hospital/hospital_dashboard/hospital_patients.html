@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Patients | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Hospital Patients CSS -->
+    <link rel="stylesheet" href="hospital_patients.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            <h3>MedVisionAI</h3>
+
+            <span>Hospital Portal</span>
+
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="hospital_dashboard.html">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_doctors.html">
+                    <i class="bi bi-person-badge-fill"></i>
+                    <span>Doctors</span>
+                </a>
+            </li>
+
+
+            <li class="active">
+                <a href="hospital_patients.html">
+                    <i class="bi bi-people-fill"></i>
+                    <span>Patients</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_appointments.html">
+                    <i class="bi bi-calendar-check-fill"></i>
+                    <span>Appointments</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_reports.html">
+                    <i class="bi bi-file-medical-fill"></i>
+                    <span>Medical Reports</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_medicines.html">
+                    <i class="bi bi-capsule-pill"></i>
+                    <span>Medicines</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_messages.html">
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <span>Messages</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_profile.html">
+                    <i class="bi bi-hospital-fill"></i>
+                    <span>Hospital Profile</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="hospital_settings.html">
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="hospital_login.html" class="logout-link">
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                >
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <h2>Hospital Patients</h2>
+
+                    <p>
+                        Manage and monitor registered patients.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-btn"
+                    id="notificationBtn"
+                    type="button"
+                >
+
+                    <i class="bi bi-bell-fill"></i>
+
+                    <span
+                        class="notification-dot"
+                        id="notificationDot"
+                    ></span>
+
+                </button>
+
+
+                <div class="hospital-profile">
+
+                    <div class="hospital-avatar">
+
+                        <i class="bi bi-hospital-fill"></i>
+
+                    </div>
+
+                    <div class="hospital-info">
+
+                        <strong id="hospitalName">
+                            Hospital
+                        </strong>
+
+                        <span>
+                            Hospital Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <section class="page-header">
+
+            <div>
+
+                <span class="page-label">
+                    Patient Management
+                </span>
+
+                <h1>Patients</h1>
+
+                <p>
+                    View, search and manage patients registered
+                    with your hospital.
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-patient-btn"
+                id="addPatientBtn"
+                type="button"
+            >
+
+                <i class="bi bi-person-plus-fill"></i>
+
+                Add Patient
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="patient-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon patients-stat-icon">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total Patients</span>
+
+                    <h2 id="totalPatients">0</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon active-stat-icon">
+
+                    <i class="bi bi-person-check-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Active Patients</span>
+
+                    <h2 id="activePatients">0</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon male-stat-icon">
+
+                    <i class="bi bi-gender-male"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Male Patients</span>
+
+                    <h2 id="malePatients">0</h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon female-stat-icon">
+
+                    <i class="bi bi-gender-female"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Female Patients</span>
+
+                    <h2 id="femalePatients">0</h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PATIENT MANAGEMENT CARD
+        ================================================== -->
+
+        <section class="patients-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h3>Registered Patients</h3>
+
+                    <p>
+                        Patients currently registered with the hospital.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Search and Filters -->
+
+            <div class="patient-tools">
+
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="patientSearch"
+                        placeholder="Search patient by name, email or phone..."
+                    >
+
+                </div>
+
+
+                <select id="genderFilter">
+
+                    <option value="all">
+                        All Gender
+                    </option>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="Active">
+                        Active
+                    </option>
+
+                    <option value="Inactive">
+                        Inactive
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Patient Table -->
+
+            <div class="table-container">
+
+                <table class="patients-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Patient</th>
+
+                            <th>Contact</th>
+
+                            <th>Gender</th>
+
+                            <th>Age</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="patientsTableBody">
+
+                        <!-- Patients will be inserted by JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-people"></i>
+
+                    </div>
+
+                    <h4>No patients found</h4>
+
+                    <p>
+                        Patients registered with the hospital
+                        will appear here.
+                    </p>
+
+                    <button
+                        class="empty-action"
+                        id="emptyAddPatientBtn"
+                        type="button"
+                    >
+
+                        <i class="bi bi-person-plus"></i>
+
+                        Add Patient
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ADD PATIENT MODAL
+        ================================================== -->
+
+        <div
+            class="modal-overlay"
+            id="patientModal"
+        >
+
+            <div class="patient-modal">
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <h3>Add New Patient</h3>
+
+                        <p>
+                            Enter patient information below.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="close-modal"
+                        id="closePatientModal"
+                        type="button"
+                    >
+
+                        <i class="bi bi-x-lg"></i>
+
+                    </button>
+
+                </div>
+
+
+                <form id="patientForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="patientName"
+                                placeholder="Enter patient name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="patientEmail"
+                                placeholder="Enter email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="patientPhone"
+                                placeholder="Enter phone number"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Date of Birth
+                            </label>
+
+                            <input
+                                type="date"
+                                id="patientDob"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Gender
+                            </label>
+
+                            <select
+                                id="patientGender"
+                                required
+                            >
+
+                                <option value="">
+                                    Select gender
+                                </option>
+
+                                <option value="Male">
+                                    Male
+                                </option>
+
+                                <option value="Female">
+                                    Female
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Blood Group
+                            </label>
+
+                            <select id="patientBloodGroup">
+
+                                <option value="">
+                                    Select blood group
+                                </option>
+
+                                <option>A+</option>
+                                <option>A-</option>
+                                <option>B+</option>
+                                <option>B-</option>
+                                <option>AB+</option>
+                                <option>AB-</option>
+                                <option>O+</option>
+                                <option>O-</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full-width">
+
+                            <label>
+                                Address
+                            </label>
+
+                            <textarea
+                                id="patientAddress"
+                                rows="3"
+                                placeholder="Enter patient address"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelPatientBtn"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="save-patient-btn"
+                        >
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Add Patient
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 MedVisionAI. Hospital Management Portal.
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- SIDEBAR OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- Hospital Patients JS -->
+
+<script src="hospital_patients.js"></script>
+
+</body>
+
+</html>

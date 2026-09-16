@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Patient Login | MedVisionAI</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/css/login.css">
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<div class="row vh-100">
+
+<!-- LEFT SIDE -->
+
+<div class="col-lg-7 left-section d-flex align-items-center">
+
+<div class="content">
+
+<h1>Welcome to MedVisionAI</h1>
+
+<p>
+
+AI Powered Healthcare Platform for Patients
+
+</p>
+
+<ul>
+
+<li><i class="bi bi-check-circle-fill"></i> AI Disease Detection</li>
+
+<li><i class="bi bi-check-circle-fill"></i> Medical Report Analysis</li>
+
+<li><i class="bi bi-check-circle-fill"></i> Medicine Reminders</li>
+
+<li><i class="bi bi-check-circle-fill"></i> Chat with Doctor</li>
+
+<li><i class="bi bi-check-circle-fill"></i> AI RAG Health Assistant</li>
+
+</ul>
+
+<img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
+class="doctor-img">
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE -->
+
+<div class="col-lg-5 d-flex justify-content-center align-items-center">
+
+<div class="login-card">
+
+<h2>Patient Login</h2>
+
+<p class="text-muted">
+
+Sign in to continue
+
+</p>
+
+<div id="formMessage" class="alert d-none"></div>
+
+<form id="patientLoginForm">
+
+<div class="mb-3">
+
+<label>Email</label>
+
+<input
+type="email"
+class="form-control"
+id="patientEmail"
+name="email"
+placeholder="Enter Email">
+
+</div>
+
+<div class="mb-3">
+
+<label>Password</label>
+
+<input
+type="password"
+class="form-control"
+id="patientPassword"
+name="password"
+placeholder="Enter Password">
+
+</div>
+
+<div class="d-flex justify-content-between">
+
+<div>
+
+<input type="checkbox">
+
+Remember Me
+
+</div>
+
+<a href="#">
+
+Forgot Password?
+
+</a>
+
+</div>
+
+<button type="submit" class="btn btn-primary w-100 mt-4">
+
+Login
+
+</button>
+
+</form>
+
+<hr>
+
+<p class="text-center">
+
+Don't have an account?
+
+</p>
+
+<a
+href="patient_signup.html"
+class="btn btn-outline-primary w-100">
+
+Create Account
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/patient_auth.js"></script>
+
+</body>
+
+</html>

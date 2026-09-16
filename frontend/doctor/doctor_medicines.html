@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medicines | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Page CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/doctor_medicines.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="page-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+            </div>
+
+            <div>
+
+                <h3>MedVisionAI</h3>
+
+                <span>Doctor Portal</span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="doctor_dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="doctor_patients.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-people-fill"></i>
+
+                <span>My Patients</span>
+
+            </a>
+
+
+            <a
+                href="doctor_reports.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-file-earmark-medical-fill"></i>
+
+                <span>Medical Reports</span>
+
+            </a>
+
+
+            <a
+                href="doctor_upload_report.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                <span>Upload Report</span>
+
+            </a>
+
+
+            <a
+                href="doctor_appointments.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-calendar-check-fill"></i>
+
+                <span>Appointments</span>
+
+            </a>
+
+
+            <a
+                href="doctor_medicines.html"
+                class="nav-item active"
+            >
+
+                <i class="bi bi-capsule"></i>
+
+                <span>Medicines</span>
+
+            </a>
+
+
+            <a
+                href="doctor_messages.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-chat-dots-fill"></i>
+
+                <span>Messages</span>
+
+            </a>
+
+
+            <a
+                href="doctor_health_timeline.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-clock-history"></i>
+
+                <span>Health Timeline</span>
+
+            </a>
+
+
+            <p class="nav-heading account-heading">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="doctor_profile.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>Profile</span>
+
+            </a>
+
+
+            <a
+                href="doctor_settings.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-gear-fill"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>
+                    Medicines
+                </h2>
+
+                <p>
+                    Prescribe and manage medicines for your patients.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-button"
+                    type="button"
+                >
+
+                    <i class="bi bi-bell"></i>
+
+                </button>
+
+
+                <div class="doctor-mini-profile">
+
+                    <div class="doctor-avatar">
+
+                        <i class="bi bi-person"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong id="doctorName">
+                            Doctor
+                        </strong>
+
+                        <span>
+                            Doctor
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             SUMMARY
+             ===================================================== -->
+
+        <section class="summary-grid">
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon blue">
+
+                    <i class="bi bi-capsule"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Active Prescriptions
+                    </span>
+
+                    <h3 id="activeCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon green">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Patients With Medicines
+                    </span>
+
+                    <h3 id="patientCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon orange">
+
+                    <i class="bi bi-clock-history"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Expiring Soon
+                    </span>
+
+                    <h3 id="expiringCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon purple">
+
+                    <i class="bi bi-check-circle"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <h3 id="completedCount">
+                        --
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PRESCRIBE MEDICINE
+             ===================================================== -->
+
+        <section class="prescription-card">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h3>
+                        Prescribe Medicine
+                    </h3>
+
+                    <p>
+                        Add a medicine to a patient's treatment plan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form
+                id="medicineForm"
+                novalidate
+            >
+
+
+                <div class="form-grid">
+
+
+                    <!-- Patient -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Patient
+                        </label>
+
+                        <select
+                            id="patientSelect"
+                            required
+                        >
+
+                            <option value="">
+                                Select patient
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Trial -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Trial
+                        </label>
+
+                        <select
+                            id="trialSelect"
+                            required
+                        >
+
+                            <option value="">
+                                Select trial
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Medicine -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Medicine Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="medicineName"
+                            placeholder="Enter medicine name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Medicine Type -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Medicine Type
+                        </label>
+
+                        <select
+                            id="medicineType"
+                            required
+                        >
+
+                            <option value="">
+                                Select type
+                            </option>
+
+                            <option value="tablet">
+                                Tablet
+                            </option>
+
+                            <option value="capsule">
+                                Capsule
+                            </option>
+
+                            <option value="syrup">
+                                Syrup
+                            </option>
+
+                            <option value="injection">
+                                Injection
+                            </option>
+
+                            <option value="cream">
+                                Cream
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Dosage -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Dosage
+                        </label>
+
+                        <input
+                            type="text"
+                            id="dosage"
+                            placeholder="Example: 1 tablet"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Frequency -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Frequency
+                        </label>
+
+                        <select
+                            id="frequency"
+                            required
+                        >
+
+                            <option value="">
+                                Select frequency
+                            </option>
+
+                            <option value="once_daily">
+                                Once a day
+                            </option>
+
+                            <option value="twice_daily">
+                                Twice a day
+                            </option>
+
+                            <option value="three_times_daily">
+                                Three times a day
+                            </option>
+
+                            <option value="four_times_daily">
+                                Four times a day
+                            </option>
+
+                            <option value="as_needed">
+                                As needed
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Start Date -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Start Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="startDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- End Date -->
+
+                    <div class="form-group">
+
+                        <label>
+                            End Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="endDate"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MEDICINE TIMINGS
+                     ================================================= -->
+
+                <div class="timing-section">
+
+                    <div class="timing-header">
+
+                        <div>
+
+                            <h4>
+                                Medicine Timings
+                            </h4>
+
+                            <p>
+                                Select when the patient should take the medicine.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timing-grid">
+
+
+                        <label class="timing-option">
+
+                            <input
+                                type="checkbox"
+                                name="medicineTiming"
+                                value="morning"
+                            >
+
+                            <span>
+
+                                <i class="bi bi-sunrise"></i>
+
+                                Morning
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="timing-option">
+
+                            <input
+                                type="checkbox"
+                                name="medicineTiming"
+                                value="afternoon"
+                            >
+
+                            <span>
+
+                                <i class="bi bi-sun"></i>
+
+                                Afternoon
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="timing-option">
+
+                            <input
+                                type="checkbox"
+                                name="medicineTiming"
+                                value="evening"
+                            >
+
+                            <span>
+
+                                <i class="bi bi-sunset"></i>
+
+                                Evening
+
+                            </span>
+
+                        </label>
+
+
+                        <label class="timing-option">
+
+                            <input
+                                type="checkbox"
+                                name="medicineTiming"
+                                value="night"
+                            >
+
+                            <span>
+
+                                <i class="bi bi-moon-stars"></i>
+
+                                Night
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Instructions -->
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Instructions
+                    </label>
+
+                    <textarea
+                        id="instructions"
+                        rows="3"
+                        placeholder="Example: Take after food with water."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- SMS Reminder -->
+
+                <div class="reminder-box">
+
+                    <div class="reminder-left">
+
+                        <div class="reminder-icon">
+
+                            <i class="bi bi-phone"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                SMS Medicine Reminder
+                            </strong>
+
+                            <p>
+                                Patient will receive reminders according to the prescribed schedule.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="smsReminder"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- Submit -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="cancel-button"
+                    >
+
+                        Clear
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="prescribe-button"
+                    >
+
+                        <i class="bi bi-plus-circle"></i>
+
+                        Prescribe Medicine
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MEDICINE TABLE
+             ===================================================== -->
+
+        <section class="medicines-card">
+
+
+            <div class="section-header table-header">
+
+                <div>
+
+                    <h3>
+                        Prescribed Medicines
+                    </h3>
+
+                    <p>
+                        Medicines currently assigned to your patients.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="refresh-button"
+                    id="refreshMedicines"
+                >
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Loading -->
+
+            <div
+                class="loading-state"
+                id="loadingState"
+            >
+
+                <div
+                    class="spinner-border text-primary"
+                ></div>
+
+                <p>
+                    Loading medicines...
+                </p>
+
+            </div>
+
+
+
+            <!-- Empty -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+                hidden
+            >
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-capsule"></i>
+
+                </div>
+
+                <h4>
+                    No medicines prescribed
+                </h4>
+
+                <p>
+                    Medicines prescribed to your patients will appear here.
+                </p>
+
+            </div>
+
+
+
+            <!-- Table -->
+
+            <div
+                class="table-responsive"
+                id="tableContainer"
+                hidden
+            >
+
+                <table class="medicine-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Patient
+                            </th>
+
+                            <th>
+                                Medicine
+                            </th>
+
+                            <th>
+                                Dosage
+                            </th>
+
+                            <th>
+                                Frequency
+                            </th>
+
+                            <th>
+                                Timings
+                            </th>
+
+                            <th>
+                                Duration
+                            </th>
+
+                            <th>
+                                Trial
+                            </th>
+
+                            <th>
+                                SMS
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="medicineTableBody"
+                    >
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer class="footer">
+
+            <span>
+                © 2026 MedVisionAI
+            </span>
+
+            <span>
+                Doctor Portal
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     MEDICINE DETAILS MODAL
+     ===================================================== -->
+
+<div
+    class="modal fade"
+    id="medicineModal"
+    tabindex="-1"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Medicine Details
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Patient
+                    </span>
+
+                    <strong id="modalPatient">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Medicine
+                    </span>
+
+                    <strong id="modalMedicine">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Dosage
+                    </span>
+
+                    <strong id="modalDosage">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Frequency
+                    </span>
+
+                    <strong id="modalFrequency">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Timings
+                    </span>
+
+                    <strong id="modalTimings">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Duration
+                    </span>
+
+                    <strong id="modalDuration">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        Trial
+                    </span>
+
+                    <strong id="modalTrial">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <span>
+                        SMS Reminder
+                    </span>
+
+                    <strong id="modalSms">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-notes">
+
+                    <span>
+                        Instructions
+                    </span>
+
+                    <p id="modalInstructions">
+                        --
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- Page JS -->
+
+<script
+    src="../assets/js/doctor_medicines.js"
+></script>
+
+
+</body>
+
+</html>

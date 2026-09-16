@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Hospital Appointments | MedVisionAI</title>
+
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- Hospital Appointments CSS -->
+    <link
+        rel="stylesheet"
+        href="hospital_appointments.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="logo">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            <h3>MedVisionAI</h3>
+
+            <span>Hospital Portal</span>
+
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+
+            <li>
+
+                <a href="hospital_dashboard.html">
+
+                    <i class="bi bi-grid-1x2-fill"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_doctors.html">
+
+                    <i class="bi bi-person-badge-fill"></i>
+
+                    <span>Doctors</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_patients.html">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>Patients</span>
+
+                </a>
+
+            </li>
+
+
+            <li class="active">
+
+                <a href="hospital_appointments.html">
+
+                    <i class="bi bi-calendar-check-fill"></i>
+
+                    <span>Appointments</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_reports.html">
+
+                    <i class="bi bi-file-medical-fill"></i>
+
+                    <span>Medical Reports</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_medicines.html">
+
+                    <i class="bi bi-capsule-pill"></i>
+
+                    <span>Medicines</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_messages.html">
+
+                    <i class="bi bi-chat-dots-fill"></i>
+
+                    <span>Messages</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_profile.html">
+
+                    <i class="bi bi-hospital-fill"></i>
+
+                    <span>Hospital Profile</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_settings.html">
+
+                    <i class="bi bi-gear-fill"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="hospital_login.html"
+                class="logout-link"
+                id="logoutBtn"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                >
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <h2>Hospital Appointments</h2>
+
+                    <p>
+                        Schedule and manage patient appointments.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    class="notification-btn"
+                    id="notificationBtn"
+                    type="button"
+                >
+
+                    <i class="bi bi-bell-fill"></i>
+
+                    <span
+                        class="notification-dot"
+                        id="notificationDot"
+                    ></span>
+
+                </button>
+
+
+                <div class="hospital-profile">
+
+                    <div class="hospital-avatar">
+
+                        <i class="bi bi-hospital-fill"></i>
+
+                    </div>
+
+
+                    <div class="hospital-info">
+
+                        <strong id="hospitalName">
+                            Hospital
+                        </strong>
+
+                        <span>
+                            Hospital Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <section class="page-header">
+
+
+            <div>
+
+                <span class="page-label">
+                    Appointment Management
+                </span>
+
+
+                <h1>Appointments</h1>
+
+
+                <p>
+                    View, schedule and manage patient appointments.
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-appointment-btn"
+                id="addAppointmentBtn"
+                type="button"
+            >
+
+                <i class="bi bi-calendar-plus-fill"></i>
+
+                Add Appointment
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="appointment-stats">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon total-stat-icon">
+
+                    <i class="bi bi-calendar2-week-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total Appointments</span>
+
+                    <h2 id="totalAppointments">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon today-stat-icon">
+
+                    <i class="bi bi-calendar-day-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Today's Appointments</span>
+
+                    <h2 id="todayAppointments">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon completed-stat-icon">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Completed</span>
+
+                    <h2 id="completedAppointments">0</h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon pending-stat-icon">
+
+                    <i class="bi bi-clock-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Pending</span>
+
+                    <h2 id="pendingAppointments">0</h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             APPOINTMENT SECTION
+        ================================================== -->
+
+        <section class="appointments-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h3>Scheduled Appointments</h3>
+
+                    <p>
+                        Manage appointments registered with the hospital.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SEARCH + FILTERS
+            ================================================== -->
+
+            <div class="appointment-tools">
+
+
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="appointmentSearch"
+                        placeholder="Search patient, doctor or appointment ID..."
+                    >
+
+                </div>
+
+
+                <input
+                    type="date"
+                    id="appointmentDateFilter"
+                >
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="Scheduled">
+                        Scheduled
+                    </option>
+
+                    <option value="Completed">
+                        Completed
+                    </option>
+
+                    <option value="Cancelled">
+                        Cancelled
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TABLE
+            ================================================== -->
+
+            <div class="table-container">
+
+
+                <table class="appointments-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Appointment</th>
+
+                            <th>Patient</th>
+
+                            <th>Doctor</th>
+
+                            <th>Date</th>
+
+                            <th>Time</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="appointmentsTableBody">
+
+                        <!-- Appointments added by JavaScript -->
+
+                    </tbody>
+
+                </table>
+
+
+
+                <!-- =================================================
+                     EMPTY STATE
+                ================================================== -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-calendar-x"></i>
+
+                    </div>
+
+
+                    <h4>No appointments found</h4>
+
+
+                    <p>
+                        Scheduled appointments will appear here.
+                    </p>
+
+
+                    <button
+                        class="empty-action"
+                        id="emptyAddAppointmentBtn"
+                        type="button"
+                    >
+
+                        <i class="bi bi-calendar-plus"></i>
+
+                        Add Appointment
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADD APPOINTMENT MODAL
+        ================================================== -->
+
+        <div
+            class="modal-overlay"
+            id="appointmentModal"
+        >
+
+
+            <div class="appointment-modal">
+
+
+                <!-- MODAL HEADER -->
+
+                <div class="modal-header">
+
+
+                    <div>
+
+                        <h3>Add New Appointment</h3>
+
+                        <p>
+                            Enter appointment information below.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="close-modal"
+                        id="closeAppointmentModal"
+                        type="button"
+                    >
+
+                        <i class="bi bi-x-lg"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- FORM -->
+
+                <form id="appointmentForm">
+
+
+                    <div class="form-grid">
+
+
+                        <!-- PATIENT -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Patient Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="appointmentPatient"
+                                placeholder="Enter patient name"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- DOCTOR -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Doctor Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="appointmentDoctor"
+                                placeholder="Enter doctor name"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- DATE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Appointment Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="appointmentDate"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- TIME -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Appointment Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="appointmentTime"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- TYPE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Appointment Type
+                            </label>
+
+                            <select
+                                id="appointmentType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select appointment type
+                                </option>
+
+                                <option value="General Consultation">
+                                    General Consultation
+                                </option>
+
+                                <option value="Follow-up">
+                                    Follow-up
+                                </option>
+
+                                <option value="Emergency">
+                                    Emergency
+                                </option>
+
+                                <option value="Routine Checkup">
+                                    Routine Checkup
+                                </option>
+
+                                <option value="Specialist Consultation">
+                                    Specialist Consultation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- STATUS -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Status
+                            </label>
+
+                            <select
+                                id="appointmentStatus"
+                                required
+                            >
+
+                                <option value="Scheduled">
+                                    Scheduled
+                                </option>
+
+                                <option value="Completed">
+                                    Completed
+                                </option>
+
+                                <option value="Cancelled">
+                                    Cancelled
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- NOTES -->
+
+                        <div class="form-group full-width">
+
+                            <label>
+                                Notes
+                            </label>
+
+                            <textarea
+                                id="appointmentNotes"
+                                rows="3"
+                                placeholder="Enter appointment notes"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MODAL ACTIONS -->
+
+                    <div class="modal-actions">
+
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelAppointmentBtn"
+                        >
+
+                            Cancel
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="save-appointment-btn"
+                        >
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Add Appointment
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 MedVisionAI. Hospital Management Portal.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- SIDEBAR OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="hospital_appointments.js"></script>
+
+
+</body>
+
+</html>

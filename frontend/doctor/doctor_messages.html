@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Messages | MedVisionAI</title>
+
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Google Font -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Page CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/doctor_messages.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="page-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    MedVisionAI
+                </h3>
+
+                <span>
+                    Doctor Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="doctor_dashboard.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_patients.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-people-fill"></i>
+
+                <span>
+                    My Patients
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_reports.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-file-earmark-medical-fill"></i>
+
+                <span>
+                    Medical Reports
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_upload_report.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                <span>
+                    Upload Report
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_appointments.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-calendar-check-fill"></i>
+
+                <span>
+                    Appointments
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_medicines.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-capsule"></i>
+
+                <span>
+                    Medicines
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_messages.html"
+                class="nav-item active"
+            >
+
+                <i class="bi bi-chat-dots-fill"></i>
+
+                <span>
+                    Messages
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_health_timeline.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-clock-history"></i>
+
+                <span>
+                    Health Timeline
+                </span>
+
+            </a>
+
+
+
+            <p class="nav-heading account-heading">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="doctor_profile.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>
+                    Profile
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_settings.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-gear-fill"></i>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <h2>
+                    Messages
+                </h2>
+
+                <p>
+                    Communicate securely with your patients.
+                </p>
+
+            </div>
+
+
+            <div class="doctor-profile">
+
+                <div class="doctor-avatar">
+
+                    <i class="bi bi-person"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong id="doctorName">
+                        Doctor
+                    </strong>
+
+                    <span>
+                        Doctor
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             CHAT APPLICATION
+             ===================================================== -->
+
+        <section class="chat-container">
+
+
+            <!-- =================================================
+                 CONVERSATION LIST
+                 ================================================= -->
+
+            <aside class="conversation-panel">
+
+
+                <div class="conversation-header">
+
+                    <div>
+
+                        <h3>
+                            Conversations
+                        </h3>
+
+                        <span id="conversationCount">
+                            0 conversations
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="new-message-button"
+                        id="refreshConversations"
+                        title="Refresh"
+                    >
+
+                        <i class="bi bi-arrow-clockwise"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- SEARCH -->
+
+                <div class="chat-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="patientSearch"
+                        placeholder="Search patients..."
+                    >
+
+                </div>
+
+
+
+                <!-- CONVERSATION LIST -->
+
+                <div
+                    class="conversation-list"
+                    id="conversationList"
+                >
+
+                    <!--
+
+                        Patient conversations will be
+                        loaded from the backend.
+
+                        NO DUMMY DATA.
+
+                    -->
+
+                    <div
+                        class="conversation-loading"
+                        id="conversationLoading"
+                    >
+
+                        <div
+                            class="spinner-border spinner-border-sm text-primary"
+                        ></div>
+
+                        <span>
+                            Loading conversations...
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- =================================================
+                 CHAT WINDOW
+                 ================================================= -->
+
+            <section class="chat-window"
+                     id="chatWindow">
+
+
+                <!-- NO CHAT SELECTED -->
+
+                <div
+                    class="no-chat"
+                    id="noChat"
+                >
+
+                    <div class="no-chat-icon">
+
+                        <i class="bi bi-chat-heart"></i>
+
+                    </div>
+
+                    <h3>
+                        Select a conversation
+                    </h3>
+
+                    <p>
+                        Select a patient from the left to start messaging.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ACTIVE CHAT
+                     ================================================= -->
+
+                <div
+                    class="active-chat"
+                    id="activeChat"
+                    hidden
+                >
+
+
+                    <!-- CHAT HEADER -->
+
+                    <div class="chat-header">
+
+
+                        <div class="selected-patient">
+
+
+                            <div class="patient-avatar"
+                                 id="selectedPatientAvatar">
+
+                                <i class="bi bi-person"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong
+                                    id="selectedPatientName"
+                                >
+                                    Patient
+                                </strong>
+
+
+                                <span
+                                    id="selectedPatientStatus"
+                                >
+                                    Offline
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="chat-actions">
+
+
+                            <button
+                                type="button"
+                                title="Patient profile"
+                                id="patientProfileButton"
+                            >
+
+                                <i class="bi bi-person-lines-fill"></i>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                title="More"
+                            >
+
+                                <i class="bi bi-three-dots-vertical"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MESSAGES
+                         ================================================= -->
+
+                    <div
+                        class="messages-area"
+                        id="messagesArea"
+                    >
+
+
+                        <div
+                            class="messages-loading"
+                            id="messagesLoading"
+                        >
+
+                            <div
+                                class="spinner-border spinner-border-sm text-primary"
+                            ></div>
+
+                            <span>
+                                Loading messages...
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MESSAGE INPUT
+                         ================================================= -->
+
+                    <form
+                        class="message-form"
+                        id="messageForm"
+                    >
+
+
+                        <button
+                            type="button"
+                            class="attachment-button"
+                            id="attachmentButton"
+                            title="Attach file"
+                        >
+
+                            <i class="bi bi-paperclip"></i>
+
+                        </button>
+
+
+                        <input
+                            type="file"
+                            id="attachmentInput"
+                            hidden
+                        >
+
+
+                        <textarea
+                            id="messageInput"
+                            rows="1"
+                            placeholder="Type a message..."
+                            autocomplete="off"
+                        ></textarea>
+
+
+                        <button
+                            type="submit"
+                            class="send-button"
+                            id="sendButton"
+                            title="Send message"
+                        >
+
+                            <i class="bi bi-send-fill"></i>
+
+                        </button>
+
+                    </form>
+
+
+
+                    <!-- ATTACHMENT PREVIEW -->
+
+                    <div
+                        class="attachment-preview"
+                        id="attachmentPreview"
+                        hidden
+                    >
+
+                        <div>
+
+                            <i class="bi bi-file-earmark"></i>
+
+                            <span id="attachmentName">
+                                File
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="removeAttachment"
+                        >
+
+                            <i class="bi bi-x"></i>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>
+                © 2026 MedVisionAI
+            </span>
+
+            <span>
+                Secure Doctor-Patient Communication
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- Page JS -->
+
+<script
+    src="../assets/js/doctor_messages.js"
+></script>
+
+
+</body>
+
+</html>

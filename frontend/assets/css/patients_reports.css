@@ -1,0 +1,760 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+body {
+    background: #f5fbff;
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    background: #0f172a;
+
+    color: white;
+
+    padding: 30px 20px;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.logo-icon {
+    font-size: 42px;
+    color: #5bc0eb;
+}
+
+
+.logo h3 {
+    margin-top: 10px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SIDEBAR MENU
+   ========================================================= */
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+
+.sidebar-menu li {
+    margin-bottom: 8px;
+}
+
+
+.sidebar-menu li a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px 15px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.sidebar-menu li a:hover {
+    background: #2563eb;
+}
+
+
+.sidebar-menu li.active a {
+    background: #2563eb;
+}
+
+
+.sidebar-menu i {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    min-height: 100vh;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #f5fbff 50%,
+            #eaf7ff 100%
+        );
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.topbar h2 {
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+
+.topbar p {
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+.profile-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.notification-icon {
+    color: #2563eb;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+.profile-image {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   REPORT HEADER
+   ========================================================= */
+
+.reports-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.reports-header h3 {
+    font-size: 22px;
+
+    font-weight: 600;
+}
+
+
+.reports-header p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+.report-filter {
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.report-filter select {
+    width: 180px;
+
+    border-radius: 10px;
+
+    border: 1px solid #dbeafe;
+
+    padding: 10px;
+
+    font-size: 13px;
+
+    box-shadow: none;
+}
+
+
+.report-filter select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   REPORT GRID
+   ========================================================= */
+
+.reports-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(330px, 1fr)
+        );
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   REPORT CARD
+   ========================================================= */
+
+.report-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+
+    border: 1px solid #edf4fa;
+
+    transition: 0.3s;
+}
+
+
+.report-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(15, 23, 42, 0.1);
+}
+
+
+/* =========================================================
+   REPORT TOP
+   ========================================================= */
+
+.report-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 18px;
+}
+
+
+.report-icon {
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #eaf3ff;
+
+    color: #2563eb;
+
+    font-size: 24px;
+}
+
+
+.report-type {
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   REPORT TITLE
+   ========================================================= */
+
+.report-card h4 {
+    font-size: 18px;
+
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+
+.report-description {
+    color: #64748b;
+
+    font-size: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   REPORT INFORMATION
+   ========================================================= */
+
+.report-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.info-item {
+    background: #f8fbff;
+
+    padding: 11px;
+
+    border-radius: 10px;
+}
+
+
+.info-label {
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    margin-bottom: 3px;
+}
+
+
+.info-value {
+    display: block;
+
+    color: #334155;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   REPORT DATES
+   ========================================================= */
+
+.report-dates {
+    border-top: 1px solid #edf2f7;
+
+    padding-top: 15px;
+
+    margin-bottom: 18px;
+}
+
+
+.date-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+}
+
+
+.date-label {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+.date-value {
+    color: #334155;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   REPORT ACTIONS
+   ========================================================= */
+
+.report-actions {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.report-actions button,
+.report-actions a {
+    flex: 1;
+
+    border-radius: 10px;
+
+    padding: 9px;
+
+    font-size: 12px;
+}
+
+
+.view-report-btn {
+    background: #2563eb;
+
+    border: none;
+
+    color: white;
+}
+
+
+.view-report-btn:hover {
+    background: #1d4ed8;
+
+    color: white;
+}
+
+
+.download-report-btn {
+    background: #f1f5f9;
+
+    border: none;
+
+    color: #334155;
+
+    text-decoration: none;
+
+    text-align: center;
+}
+
+
+.download-report-btn:hover {
+    background: #e2e8f0;
+
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-state {
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #64748b;
+}
+
+
+.loading-state .spinner-border {
+    color: #2563eb;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+
+.empty-icon {
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: auto auto 18px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 30px;
+}
+
+
+.empty-state h4 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+
+.empty-state p {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-state {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+
+.error-state > i {
+    font-size: 45px;
+
+    color: #ef4444;
+}
+
+
+.error-state h4 {
+    margin-top: 15px;
+}
+
+
+.error-state p {
+    color: #64748b;
+
+    font-size: 13px;
+
+    margin: 8px 0 20px;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.report-viewer-body {
+    min-height: 500px;
+
+    background: #f8fafc;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: auto;
+}
+
+
+.report-viewer-body iframe {
+    width: 100%;
+
+    height: 650px;
+
+    border: none;
+}
+
+
+.report-viewer-body img {
+    max-width: 100%;
+
+    max-height: 650px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+    .sidebar {
+        display: none;
+    }
+
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+
+    .topbar h2 {
+        font-size: 24px;
+    }
+
+
+    .profile-area span {
+        display: none;
+    }
+
+
+    .reports-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+
+    .report-filter {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .report-filter select {
+        width: 100%;
+    }
+
+
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

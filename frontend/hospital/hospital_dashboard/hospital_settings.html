@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Settings | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Hospital Settings CSS -->
+    <link rel="stylesheet" href="hospital_settings.css">
+
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <i class="bi bi-heart-pulse-fill"></i>
+
+            <h3>MedVisionAI</h3>
+
+            <span>Hospital Portal</span>
+
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+            <li>
+
+                <a href="hospital_dashboard.html">
+
+                    <i class="bi bi-grid-1x2-fill"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_doctors.html">
+
+                    <i class="bi bi-person-badge-fill"></i>
+
+                    <span>Doctors</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_patients.html">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>Patients</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_appointments.html">
+
+                    <i class="bi bi-calendar-check-fill"></i>
+
+                    <span>Appointments</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_reports.html">
+
+                    <i class="bi bi-file-medical-fill"></i>
+
+                    <span>Medical Reports</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_medicines.html">
+
+                    <i class="bi bi-capsule-pill"></i>
+
+                    <span>Medicines</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_messages.html">
+
+                    <i class="bi bi-chat-dots-fill"></i>
+
+                    <span>Messages</span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="hospital_profile.html">
+
+                    <i class="bi bi-hospital-fill"></i>
+
+                    <span>Hospital Profile</span>
+
+                </a>
+
+            </li>
+
+
+            <li class="active">
+
+                <a href="hospital_settings.html">
+
+                    <i class="bi bi-gear-fill"></i>
+
+                    <span>Settings</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="hospital_login.html"
+                class="logout-link"
+                id="logoutBtn"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    type="button"
+                >
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <h2>Hospital Settings</h2>
+
+                    <p>
+                        Manage hospital preferences and account settings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    class="notification-btn"
+                    id="notificationBtn"
+                    type="button"
+                >
+
+                    <i class="bi bi-bell-fill"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="hospital-profile">
+
+                    <div class="hospital-avatar">
+
+                        <i class="bi bi-hospital-fill"></i>
+
+                    </div>
+
+
+                    <div class="hospital-info">
+
+                        <strong id="hospitalName">
+                            Hospital
+                        </strong>
+
+                        <span>
+                            Hospital Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <section class="page-header">
+
+            <div>
+
+                <span class="page-label">
+                    System Configuration
+                </span>
+
+                <h1>Settings</h1>
+
+                <p>
+                    Configure hospital account, notifications,
+                    security and system preferences.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SETTINGS CONTAINER
+        ================================================== -->
+
+        <section class="settings-section">
+
+
+            <!-- SETTINGS NAVIGATION -->
+
+            <div class="settings-sidebar">
+
+
+                <button
+                    class="settings-tab active"
+                    data-section="account"
+                >
+
+                    <i class="bi bi-person-circle"></i>
+
+                    <span>Account Settings</span>
+
+                </button>
+
+
+                <button
+                    class="settings-tab"
+                    data-section="notifications"
+                >
+
+                    <i class="bi bi-bell-fill"></i>
+
+                    <span>Notifications</span>
+
+                </button>
+
+
+                <button
+                    class="settings-tab"
+                    data-section="security"
+                >
+
+                    <i class="bi bi-shield-lock-fill"></i>
+
+                    <span>Security</span>
+
+                </button>
+
+
+                <button
+                    class="settings-tab"
+                    data-section="preferences"
+                >
+
+                    <i class="bi bi-sliders"></i>
+
+                    <span>Preferences</span>
+
+                </button>
+
+
+                <button
+                    class="settings-tab"
+                    data-section="system"
+                >
+
+                    <i class="bi bi-cpu-fill"></i>
+
+                    <span>System</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- SETTINGS CONTENT -->
+
+            <div class="settings-content">
+
+
+                <!-- =================================================
+                     ACCOUNT SETTINGS
+                ================================================== -->
+
+                <div
+                    class="settings-panel active"
+                    id="account"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Account Settings</h3>
+
+                            <p>
+                                Manage the hospital administrator account.
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-person-circle panel-icon"></i>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Administrator Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminName"
+                                placeholder="Enter administrator name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Administrator Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="adminEmail"
+                                placeholder="Enter email"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="adminPhone"
+                                placeholder="Enter phone number"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Account Role
+                            </label>
+
+                            <input
+                                type="text"
+                                value="Hospital Administrator"
+                                disabled
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            class="save-btn"
+                            id="saveAccountBtn"
+                        >
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Save Changes
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     NOTIFICATIONS
+                ================================================== -->
+
+                <div
+                    class="settings-panel"
+                    id="notifications"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Notification Settings</h3>
+
+                            <p>
+                                Choose which notifications the hospital receives.
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-bell-fill panel-icon"></i>
+
+                    </div>
+
+
+                    <div class="setting-list">
+
+
+                        <div class="setting-item">
+
+                            <div>
+
+                                <strong>
+                                    New Patient Registration
+                                </strong>
+
+                                <p>
+                                    Notify hospital when a new patient is registered.
+                                </p>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="newPatientNotification"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-item">
+
+                            <div>
+
+                                <strong>
+                                    New Appointment
+                                </strong>
+
+                                <p>
+                                    Receive notifications for new appointments.
+                                </p>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="appointmentNotification"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-item">
+
+                            <div>
+
+                                <strong>
+                                    Medical Report Uploaded
+                                </strong>
+
+                                <p>
+                                    Notify hospital when doctors upload reports.
+                                </p>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="reportNotification"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-item">
+
+                            <div>
+
+                                <strong>
+                                    Medicine Updates
+                                </strong>
+
+                                <p>
+                                    Receive notifications about medicine inventory.
+                                </p>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="medicineNotification"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-item">
+
+                            <div>
+
+                                <strong>
+                                    System Notifications
+                                </strong>
+
+                                <p>
+                                    Receive important system notifications.
+                                </p>
+
+                            </div>
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="systemNotification"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            class="save-btn"
+                            id="saveNotificationBtn"
+                        >
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Save Preferences
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SECURITY
+                ================================================== -->
+
+                <div
+                    class="settings-panel"
+                    id="security"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Security</h3>
+
+                            <p>
+                                Manage your hospital administrator password.
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-shield-lock-fill panel-icon"></i>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group full-width">
+
+                            <label>
+                                Current Password
+                            </label>
+
+                            <div class="password-field">
+
+                                <input
+                                    type="password"
+                                    id="currentPassword"
+                                    placeholder="Enter current password"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="currentPassword"
+                                >
+
+                                    <i class="bi bi-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                New Password
+                            </label>
+
+                            <div class="password-field">
+
+                                <input
+                                    type="password"
+                                    id="newPassword"
+                                    placeholder="Enter new password"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="newPassword"
+                                >
+
+                                    <i class="bi bi-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Confirm Password
+                            </label>
+
+                            <div class="password-field">
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm new password"
+                                >
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    data-target="confirmPassword"
+                                >
+
+                                    <i class="bi bi-eye"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="password-note">
+
+                        <i class="bi bi-info-circle"></i>
+
+                        <span>
+                            Use at least 8 characters with a combination
+                            of letters, numbers and special characters.
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            class="save-btn"
+                            id="changePasswordBtn"
+                        >
+
+                            <i class="bi bi-lock-fill"></i>
+
+                            Change Password
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PREFERENCES
+                ================================================== -->
+
+                <div
+                    class="settings-panel"
+                    id="preferences"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>System Preferences</h3>
+
+                            <p>
+                                Customize how the hospital portal behaves.
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-sliders panel-icon"></i>
+
+                    </div>
+
+
+                    <div class="preference-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Date Format
+                            </label>
+
+                            <select id="dateFormat">
+
+                                <option value="DD-MM-YYYY">
+                                    DD-MM-YYYY
+                                </option>
+
+                                <option value="MM-DD-YYYY">
+                                    MM-DD-YYYY
+                                </option>
+
+                                <option value="YYYY-MM-DD">
+                                    YYYY-MM-DD
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Time Format
+                            </label>
+
+                            <select id="timeFormat">
+
+                                <option value="12">
+                                    12 Hour
+                                </option>
+
+                                <option value="24">
+                                    24 Hour
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Language
+                            </label>
+
+                            <select id="language">
+
+                                <option value="English">
+                                    English
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Default Patient Status
+                            </label>
+
+                            <select id="defaultPatientStatus">
+
+                                <option value="Active">
+                                    Active
+                                </option>
+
+                                <option value="Inactive">
+                                    Inactive
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="panel-actions">
+
+                        <button
+                            class="save-btn"
+                            id="savePreferencesBtn"
+                        >
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Save Preferences
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SYSTEM
+                ================================================== -->
+
+                <div
+                    class="settings-panel"
+                    id="system"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>System Information</h3>
+
+                            <p>
+                                Information about the MedVisionAI hospital portal.
+                            </p>
+
+                        </div>
+
+                        <i class="bi bi-cpu-fill panel-icon"></i>
+
+                    </div>
+
+
+                    <div class="system-info">
+
+
+                        <div class="system-row">
+
+                            <span>
+                                Application
+                            </span>
+
+                            <strong>
+                                MedVisionAI
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <span>
+                                Portal
+                            </span>
+
+                            <strong>
+                                Hospital Management
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <span>
+                                Frontend Version
+                            </span>
+
+                            <strong>
+                                1.0.0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <span>
+                                Backend
+                            </span>
+
+                            <strong>
+                                Django
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <span>
+                                Database
+                            </span>
+
+                            <strong>
+                                PostgreSQL
+                            </strong>
+
+                        </div>
+
+
+                        <div class="system-row">
+
+                            <span>
+                                AI Platform
+                            </span>
+
+                            <strong>
+                                MedVisionAI AI Engine
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="system-status">
+
+                        <div class="status-indicator"></div>
+
+                        <div>
+
+                            <strong>
+                                System Status
+                            </strong>
+
+                            <span>
+                                All systems operational
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 MedVisionAI. Hospital Management Portal.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- SIDEBAR OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+
+<!-- Hospital Settings JS -->
+
+<script src="hospital_settings.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Doctor Dashboard | MedVisionAI</title>
+
+
+    <!-- Bootstrap -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Bootstrap Icons -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Google Font -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Doctor Dashboard CSS -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/doctor_dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+            </div>
+
+            <div>
+
+                <h3>MedVisionAI</h3>
+
+                <span>Doctor Portal</span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <p class="nav-heading">
+                MAIN MENU
+            </p>
+
+
+            <a
+                href="doctor_dashboard.html"
+                class="nav-item active"
+            >
+
+                <i class="bi bi-grid-1x2-fill"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <a
+                href="doctor_patients.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-people-fill"></i>
+
+                <span>My Patients</span>
+
+            </a>
+
+
+            <a
+                href="doctor_reports.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-file-earmark-medical-fill"></i>
+
+                <span>Medical Reports</span>
+
+            </a>
+
+
+            <a
+                href="doctor_upload_report.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                <span>Upload Report</span>
+
+            </a>
+
+
+            <a
+                href="doctor_appointments.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-calendar-check-fill"></i>
+
+                <span>Appointments</span>
+
+            </a>
+
+
+            <a
+                href="doctor_medicines.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-capsule"></i>
+
+                <span>Medicines</span>
+
+            </a>
+
+
+            <a
+                href="doctor_messages.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-chat-dots-fill"></i>
+
+                <span>Messages</span>
+
+                <span
+                    class="nav-badge"
+                    id="messageBadge"
+                    hidden
+                >
+                    0
+                </span>
+
+            </a>
+
+
+            <a
+                href="doctor_health_timeline.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-clock-history"></i>
+
+                <span>Health Timeline</span>
+
+            </a>
+
+
+            <p class="nav-heading settings-heading">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="doctor_profile.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-person-circle"></i>
+
+                <span>Profile</span>
+
+            </a>
+
+
+            <a
+                href="doctor_settings.html"
+                class="nav-item"
+            >
+
+                <i class="bi bi-gear-fill"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+
+            <div class="topbar-left">
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <div class="page-title">
+
+                    <h2>
+                        Doctor Dashboard
+                    </h2>
+
+                    <p>
+                        Manage your patients and healthcare activities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="topbar-right">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="text"
+                        id="dashboardSearch"
+                        placeholder="Search..."
+                    >
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <button
+                    class="icon-button"
+                    id="notificationButton"
+                    aria-label="Notifications"
+                >
+
+                    <i class="bi bi-bell"></i>
+
+                    <span
+                        class="notification-dot"
+                        id="notificationDot"
+                        hidden
+                    ></span>
+
+                </button>
+
+
+                <!-- PROFILE -->
+
+                <div class="doctor-profile">
+
+                    <div class="doctor-photo">
+
+                        <img
+                            id="doctorProfileImage"
+                            src=""
+                            alt="Doctor Profile"
+                            hidden
+                        >
+
+                        <i
+                            id="doctorProfileIcon"
+                            class="bi bi-person"
+                        ></i>
+
+                    </div>
+
+
+                    <div class="doctor-info">
+
+                        <strong id="doctorName">
+                            Doctor
+                        </strong>
+
+                        <span id="doctorSpecialization">
+                            Doctor
+                        </span>
+
+                    </div>
+
+
+                    <i class="bi bi-chevron-down profile-arrow"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             WELCOME SECTION
+             ================================================= -->
+
+        <section class="welcome-section">
+
+
+            <div class="welcome-content">
+
+                <span class="welcome-label">
+
+                    <i class="bi bi-stars"></i>
+
+                    MedVisionAI Doctor Portal
+
+                </span>
+
+
+                <h1>
+
+                    Welcome Back,
+                    <span id="welcomeDoctorName">
+                        Doctor
+                    </span>
+                    👋
+
+                </h1>
+
+
+                <p>
+
+                    Monitor your patients, review medical reports
+                    and manage today's healthcare activities.
+
+                </p>
+
+            </div>
+
+
+            <div class="welcome-icon">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+             ================================================= -->
+
+        <section class="statistics-section">
+
+
+            <!-- PATIENTS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        My Patients
+                    </span>
+
+                    <h3 id="totalPatients">
+                        --
+                    </h3>
+
+                    <small>
+                        Assigned patients
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- APPOINTMENTS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="bi bi-calendar-check-fill"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        Today's Appointments
+                    </span>
+
+                    <h3 id="todayAppointments">
+                        --
+                    </h3>
+
+                    <small>
+                        Scheduled today
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REPORTS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="bi bi-file-earmark-medical-fill"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        Pending Reports
+                    </span>
+
+                    <h3 id="pendingReports">
+                        --
+                    </h3>
+
+                    <small>
+                        Require review
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MESSAGES -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="bi bi-chat-dots-fill"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        Unread Messages
+                    </span>
+
+                    <h3 id="unreadMessages">
+                        --
+                    </h3>
+
+                    <small>
+                        From patients
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+             ================================================= -->
+
+        <section class="section-block">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h3>
+                        Quick Actions
+                    </h3>
+
+                    <p>
+                        Frequently used doctor functions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+
+                <a
+                    href="doctor_patients.html"
+                    class="quick-action"
+                >
+
+                    <div class="quick-action-icon blue">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            My Patients
+                        </strong>
+
+                        <span>
+                            View patient records
+                        </span>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+
+                <a
+                    href="doctor_upload_report.html"
+                    class="quick-action"
+                >
+
+                    <div class="quick-action-icon purple">
+
+                        <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Upload Report
+                        </strong>
+
+                        <span>
+                            Add a patient report
+                        </span>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+
+                <a
+                    href="doctor_appointments.html"
+                    class="quick-action"
+                >
+
+                    <div class="quick-action-icon green">
+
+                        <i class="bi bi-calendar-plus-fill"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Appointments
+                        </strong>
+
+                        <span>
+                            Manage appointments
+                        </span>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+
+                <a
+                    href="doctor_medicines.html"
+                    class="quick-action"
+                >
+
+                    <div class="quick-action-icon orange">
+
+                        <i class="bi bi-capsule"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Medicines
+                        </strong>
+
+                        <span>
+                            Manage treatments
+                        </span>
+
+                    </div>
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TWO COLUMN CONTENT
+             ================================================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- =============================================
+                 UPCOMING APPOINTMENTS
+                 ============================================= -->
+
+            <div class="dashboard-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Upcoming Appointments
+                        </h3>
+
+                        <p>
+                            Your scheduled patient appointments.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="doctor_appointments.html"
+                        class="view-all"
+                    >
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="empty-state"
+                    id="appointmentsEmpty"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-calendar2-x"></i>
+
+                    </div>
+
+                    <h4>
+                        No upcoming appointments
+                    </h4>
+
+                    <p>
+                        Appointments assigned to you will
+                        appear here.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="appointment-list"
+                    id="appointmentList"
+                    hidden
+                ></div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 RECENT PATIENTS
+                 ============================================= -->
+
+            <div class="dashboard-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Recent Patients
+                        </h3>
+
+                        <p>
+                            Recently assigned or updated patients.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="doctor_patients.html"
+                        class="view-all"
+                    >
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="empty-state"
+                    id="patientsEmpty"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="bi bi-person-x"></i>
+
+                    </div>
+
+                    <h4>
+                        No patients available
+                    </h4>
+
+                    <p>
+                        Patients assigned to you will
+                        appear here.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="patient-list"
+                    id="patientList"
+                    hidden
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECENT REPORTS
+             ================================================= -->
+
+        <section class="dashboard-panel reports-panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h3>
+                        Recent Medical Reports
+                    </h3>
+
+                    <p>
+                        Recently uploaded patient reports.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="doctor_reports.html"
+                    class="view-all"
+                >
+                    View All
+                </a>
+
+            </div>
+
+
+            <div
+                class="empty-state"
+                id="reportsEmpty"
+            >
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-file-earmark-x"></i>
+
+                </div>
+
+                <h4>
+                    No reports available
+                </h4>
+
+                <p>
+                    Reports uploaded by patients or hospital
+                    management will appear here.
+                </p>
+
+            </div>
+
+
+            <div
+                class="reports-table-wrapper"
+                id="reportsTableWrapper"
+                hidden
+            >
+
+                <table class="reports-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Patient
+                            </th>
+
+                            <th>
+                                Report
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Trial
+                            </th>
+
+                            <th>
+                                Updated
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="reportsTableBody"
+                    ></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 MedVisionAI
+            </span>
+
+            <span>
+                Doctor Portal
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     MOBILE OVERLAY
+     ===================================================== -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script
+    src="../assets/js/doctor_dashboard.js"
+></script>
+
+
+</body>
+
+</html>

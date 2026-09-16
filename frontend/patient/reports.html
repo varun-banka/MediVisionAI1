@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Reports | MedVisionAI</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Reports CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/patients_reports.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="page-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </div>
+
+            <h3>MedVisionAI</h3>
+
+        </div>
+
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+
+            <li class="active">
+                <a href="reports.html">
+                    <i class="bi bi-file-earmark-medical"></i>
+                    <span>Medical Reports</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="chatbot.html">
+                    <i class="bi bi-robot"></i>
+                    <span>AI Chatbot</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="appointments.html">
+                    <i class="bi bi-calendar-check"></i>
+                    <span>Appointments</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="medicines.html">
+                    <i class="bi bi-capsule"></i>
+                    <span>Medicine Reminder</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="messages.html">
+                    <i class="bi bi-chat-dots"></i>
+                    <span>Messages</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="timeline.html">
+                    <i class="bi bi-clock-history"></i>
+                    <span>Health Timeline</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="profile.html">
+                    <i class="bi bi-person-circle"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="settings.html">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="../auth/patient_login.html">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>Medical Reports</h2>
+
+                <p>
+                    Reports uploaded by your doctor or hospital
+                </p>
+
+            </div>
+
+
+            <div class="profile-area">
+
+                <i class="bi bi-bell-fill notification-icon"></i>
+
+                <!--
+                    Patient photo should eventually come
+                    from the logged-in patient profile.
+                -->
+
+                <img
+                    id="patientProfileImage"
+                    src=""
+                    alt="Patient"
+                    class="profile-image"
+                    hidden
+                >
+
+                <span id="patientName"></span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             REPORT FILTER
+             ===================================================== -->
+
+        <section class="reports-header">
+
+            <div>
+
+                <h3>Your Medical Reports</h3>
+
+                <p>
+                    All reports uploaded by authorized doctors
+                    or hospital management.
+                </p>
+
+            </div>
+
+
+            <div class="report-filter">
+
+                <select
+                    id="trialFilter"
+                    class="form-select"
+                >
+
+                    <option value="all">
+                        All Trials
+                    </option>
+
+                </select>
+
+
+                <select
+                    id="reportTypeFilter"
+                    class="form-select"
+                >
+
+                    <option value="all">
+                        All Report Types
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REPORTS CONTAINER
+             ===================================================== -->
+
+        <section id="reportsContainer">
+
+
+            <!--
+
+                IMPORTANT:
+
+                NO DUMMY REPORTS ARE PRESENT HERE.
+
+                Reports will be created dynamically by
+                reports.js after receiving data from:
+
+                GET /api/patient/reports
+
+            -->
+
+
+            <div
+                id="reportsLoading"
+                class="loading-state"
+            >
+
+                <div
+                    class="spinner-border"
+                    role="status"
+                ></div>
+
+                <p>
+                    Loading your medical reports...
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             NO REPORTS MESSAGE
+             ===================================================== -->
+
+        <div
+            id="noReports"
+            class="empty-state"
+            hidden
+        >
+
+            <div class="empty-icon">
+
+                <i class="bi bi-file-earmark-medical"></i>
+
+            </div>
+
+            <h4>
+                No Medical Reports
+            </h4>
+
+            <p>
+                Your doctor or hospital has not uploaded
+                any medical reports yet.
+            </p>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             ERROR MESSAGE
+             ===================================================== -->
+
+        <div
+            id="reportsError"
+            class="error-state"
+            hidden
+        >
+
+            <i class="bi bi-exclamation-circle"></i>
+
+            <h4>
+                Unable to Load Reports
+            </h4>
+
+            <p id="errorMessage">
+                Something went wrong while loading your reports.
+            </p>
+
+            <button
+                id="retryButton"
+                class="btn btn-primary"
+            >
+                Try Again
+            </button>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     REPORT VIEW MODAL
+     ========================================================= -->
+
+<div
+    class="modal fade"
+    id="reportViewerModal"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h5
+                        id="viewerTitle"
+                        class="modal-title"
+                    >
+                        Medical Report
+                    </h5>
+
+                    <small
+                        id="viewerUpdatedDate"
+                        class="text-muted"
+                    ></small>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button>
+
+            </div>
+
+
+            <div
+                id="reportViewerBody"
+                class="modal-body report-viewer-body"
+            >
+
+                <!-- Dynamic report content -->
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <a
+                    id="downloadReportButton"
+                    href="#"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <i class="bi bi-download"></i>
+
+                    Download Report
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- Reports JS -->
+
+<script
+    src="../assets/js/reports.js"
+></script>
+
+
+</body>
+
+</html>

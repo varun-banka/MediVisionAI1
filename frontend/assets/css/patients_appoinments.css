@@ -1,0 +1,675 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+body {
+    background: #f5fbff;
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   PAGE WRAPPER
+   ========================================================= */
+
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    background: #0f172a;
+    color: white;
+
+    padding: 30px 20px;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.logo-icon {
+    font-size: 42px;
+    color: #5bc0eb;
+}
+
+
+.logo h3 {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SIDEBAR MENU
+   ========================================================= */
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+
+.sidebar-menu li {
+    margin-bottom: 8px;
+}
+
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px 15px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.sidebar-menu li a i {
+    font-size: 18px;
+}
+
+
+.sidebar-menu li a:hover {
+    background: #2563eb;
+}
+
+
+.sidebar-menu li.active a {
+    background: #2563eb;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    min-height: 100vh;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #f5fbff 50%,
+            #eaf7ff 100%
+        );
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+
+.topbar h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+.topbar p {
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+.profile-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.notification-icon {
+    color: #2563eb;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+.profile-image {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   APPOINTMENT SECTION
+   ========================================================= */
+
+.appointment-section {
+    margin-bottom: 30px;
+}
+
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.section-title h3 {
+    font-size: 22px;
+
+    font-weight: 600;
+}
+
+
+.section-title p {
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   APPOINTMENT CONTAINER
+   ========================================================= */
+
+.appointment-container {
+    min-height: 170px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   UPCOMING APPOINTMENT CARD
+   ========================================================= */
+
+.upcoming-card {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background: #f8fbff;
+
+    border: 1px solid #e1effa;
+}
+
+
+.doctor-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.doctor-icon {
+    width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #e8f3ff;
+
+    color: #2563eb;
+
+    font-size: 26px;
+}
+
+
+.doctor-info h4 {
+    font-size: 18px;
+
+    margin-bottom: 4px;
+}
+
+
+.doctor-info p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   APPOINTMENT DATE
+   ========================================================= */
+
+.appointment-date {
+    text-align: center;
+
+    padding: 10px 25px;
+
+    border-left: 1px solid #dbe7f0;
+
+    border-right: 1px solid #dbe7f0;
+}
+
+
+.appointment-date h4 {
+    color: #2563eb;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+.appointment-date p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   APPOINTMENT TYPE
+   ========================================================= */
+
+.appointment-type {
+    text-align: center;
+}
+
+
+.appointment-type span {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    background: #eaf2ff;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   TABLE CARD
+   ========================================================= */
+
+.table-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.appointment-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.appointment-table th {
+    text-align: left;
+
+    padding: 15px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    border-bottom: 1px solid #e5edf5;
+}
+
+
+.appointment-table td {
+    padding: 17px 15px;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #edf2f7;
+}
+
+
+.appointment-table tbody tr:hover {
+    background: #f8fbff;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.status.confirmed {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+
+.status.pending {
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+
+.status.completed {
+    background: #e2e8f0;
+
+    color: #475569;
+}
+
+
+.status.cancelled {
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    text-align: center;
+
+    padding: 50px !important;
+
+    color: #64748b;
+}
+
+
+.empty-state i {
+    font-size: 40px;
+
+    color: #94a3b8;
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+
+
+.empty-state p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-state {
+    min-height: 120px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #64748b;
+}
+
+
+.loading-state .spinner-border {
+    color: #2563eb;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   REMINDER INFO
+   ========================================================= */
+
+.reminder-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 18px;
+}
+
+
+.reminder-icon {
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+
+.reminder-info h5 {
+    margin-bottom: 5px;
+
+    color: #1e40af;
+}
+
+
+.reminder-info p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 230px;
+    }
+
+    .main-content {
+        margin-left: 230px;
+
+        width: calc(100% - 230px);
+    }
+
+}
+
+
+@media (max-width: 992px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+    }
+
+    .upcoming-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .appointment-date {
+        border-left: none;
+
+        border-right: none;
+
+        border-top: 1px solid #dbe7f0;
+
+        border-bottom: 1px solid #dbe7f0;
+
+        width: 100%;
+
+        padding: 15px 0;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .topbar h2 {
+        font-size: 24px;
+    }
+
+    .profile-area span {
+        display: none;
+    }
+
+    .appointment-table {
+        min-width: 700px;
+    }
+
+}
